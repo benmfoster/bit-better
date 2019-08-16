@@ -5,11 +5,12 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    const selectedOption = 'option1'
+    const greeting = { greeting: 'Welcome to Bit Better' };
+    const selectedOption = 'option1';
     const questionOne = { question: 'Bit better?', active: true };
     const questionOneResponseOne = { response: "Freedom isn't free.", active: false }
     const questionOneResponseTwo = { response: "It is better to die a hero than to live long enough to see yourself become the villian.", active: false }
-    this.state = { selectedOption, questionOne, questionOneResponseOne, questionOneResponseTwo };
+    this.state = { greeting, selectedOption, questionOne, questionOneResponseOne, questionOneResponseTwo };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
 }
@@ -38,6 +39,18 @@ handleSubmit(event) {
   }
 }
 
+greeting () {
+    return (
+      <div>
+        <h1 onClick={() => { 
+          const removeGreeting = this.state.greeting;
+          removeGreeting.greeting = '';
+          this.setState({ greeting: removeGreeting }); 
+        }}>{ this.state.greeting.greeting }</h1>
+      </div>
+    )
+}
+
 displayQuestion() {
   if (this.state.questionOne.active === true) {
     return this.state.questionOne.question;
@@ -47,7 +60,6 @@ displayQuestion() {
 }
 
 displayResponse() {
-  console.log(this.state.questionOneResponseOne.active);
   if (this.state.questionOneResponseOne.active === true) {
     return this.state.questionOneResponseOne.response;
   } else if (this.state.questionOneResponseTwo.active === true) {
@@ -86,9 +98,16 @@ displayResponse() {
   }
 
   render() {
-    return (     
+    if (this.state.greeting.greeting.length > 0) {
+      return (
+        this.greeting()
+      )
+    } else {
+      return (
         this.chatBox()
-    );
+      )
+    } 
+    
   }
 }
 export default App;
