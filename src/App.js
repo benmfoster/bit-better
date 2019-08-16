@@ -77,7 +77,10 @@ displayResponse() {
     if(this.state.questionOneResponseOne.active === true || this.state.questionOneResponseTwo.active === true) {
       return (
         <div>
-          { this.displayResponse() }
+          <div>
+            { this.displayResponse() }
+          </div>
+          <button>Continue</button>
         </div>
       )     
     } else {
