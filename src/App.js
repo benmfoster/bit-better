@@ -5,18 +5,52 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    const greeting = { greeting: 'Welcome to Bit Better' };
+    const greeting = 'Welcome to Bit Better';
     const selectedOption = 'option1';
-    const questionOne = { question: 'Choose one.' };
-    const questionOneResponseOne = { response: "“You always know when you’re going to arrive. If you go by car, you don’t. Apart from anything else, I prefer cycling. It puts you in a good mood, I find.” — Alan Bennett, British playwright", active: false }
-    const questionOneResponseTwo = { response: "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperstock.net%2Fwallpapers%2Fthumbs1%2F40079wide.jpg", active: false }
-    this.state = { greeting, selectedOption, questionOne, questionOneResponseOne, questionOneResponseTwo };
+    const optionOne = [
+      'bicycle', 
+      'a man',
+      'south, beyond the compass, were grass grows a reddish hue, and all the words of the people are full of magic.'
+    ];
+    const optionIndex = 0;
+    const optionTwo = [
+      'a green mountain', 
+      'a song sung from the heart of the world.',
+      'down, down, down beneath the unfathomable deeps.'
+    ];
+    const responses = [
+      "“You always know when you’re going to arrive. If you go by car, you don’t. Apart from anything else, I prefer cycling. It puts you in a good mood, I find.” — Alan Bennett, British playwright",
+      "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperstock.net%2Fwallpapers%2Fthumbs1%2F40079wide.jpg", 
+      "“Profound belief in something allows every individual to find an immense inner force, and to overcome his or her failings.” – Soichiro Honda", "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F9806WHk1jH0%2Fmaxresdefault.jpg",
+      "“What would you do if you weren't afraid?” ― Spencer Johnson, Who Moved My Cheese?",
+      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fcascadeclimbers.com%2Fplab%2Fdata%2F513%2Fcold62.JPG"
+    ];
+    const responsesIndex = 0;
+    const questions = [
+      'Choose one.',
+      'I am born of water but when I return to water, I die. What am I?',
+      'If love were a beautiful song, where would it be sung from?',
+      'Where fare thee, gentle soul?'
+    ];
+    const questionsIndex = 0;
+    const questionResponseToggle = false;
+    this.state = {
+      greeting,
+      selectedOption,
+      questions,
+      responses,
+      questionsIndex,
+      questionResponseToggle,
+      optionOne,
+      optionTwo,
+      optionIndex,
+      responsesIndex
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
 }
 
 handleOptionChange (changeEvent) {
-  console.log(changeEvent.target.value);
   this.setState({
     selectedOption: changeEvent.target.value
   });
@@ -24,94 +58,102 @@ handleOptionChange (changeEvent) {
 
 handleSubmit(event) {
   event.preventDefault();
-  if(this.state.selectedOption === 'option1') {
-    const deactivateSecondResponse = this.state.questionOneResponseTwo;
-    deactivateSecondResponse.active = false;
-    const activateFirstResponse = this.state.questionOneResponseOne;
-    activateFirstResponse.active = true;
-    this.setState({ questionOneResponseOne: activateFirstResponse, questionOneResponseTwo: deactivateSecondResponse });
-  } else {
-    const deactivateFirstResponse = this.state.questionOneResponseOne;
-    deactivateFirstResponse.active = false;
-    const activateSecondResponse = this.state.questionOneResponseTwo;
-    activateSecondResponse.active = true;
-    this.setState({ questionOneResponseTwo: activateSecondResponse, questionOneResponseOne: deactivateFirstResponse });
-  }
-  const removeQuestion = this.state.questionOne;
-  removeQuestion.question = ''
-  this.setState({ questionOne: removeQuestion });
+  this.setState({ questionResponseToggle: true });
 }
 
 greeting () {
     return (
       <div>
         <h1 onClick={() => { 
-          const removeGreeting = this.state.greeting;
-          removeGreeting.greeting = '';
-          this.setState({ greeting: removeGreeting }); 
-        }}>{ this.state.greeting.greeting }</h1>
+          this.setState({ greeting: '' }); 
+        }}>{ this.state.greeting }</h1>
       </div>
     )
 }
 
+displayResponse() { 
+  if(this.state.selectedOption === 'option1') {
+    return this.state.responses[this.state.responsesIndex];
+  } else if(this.state.selectedOption === 'option2') {
+    return <img src={this.state.responses[this.state.responsesIndex + 1]} alt="" />;
+  } else {
+    return '';
+  }
+}
+
+newQuestion() {
+  if(this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1
+    const response = this.state.responsesIndex + 2
+    const question = this.state.questionsIndex + 1
+    this.setState({ 
+      questionResponseToggle: false, 
+      optionIndex: option, 
+      responsesIndex: response, 
+      questionsIndex: question 
+    }); 
+  } else if(this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 2
+    const response = this.state.responsesIndex + 4
+    const question = this.state.questionsIndex + 2
+    this.setState({ 
+      questionResponseToggle: false, 
+      optionIndex: option, 
+      responsesIndex: response, 
+      questionsIndex: question 
+    }); 
+  }  
+}
+
 displayQuestion() {
-  if (this.state.questionOne.question.length > 0) {
-    return this.state.questionOne.question;
-  } else {
-    return '';
-  }
-}
-
-displayResponse() {
-  
-  if (this.state.questionOneResponseOne.active === true) {
-    return this.state.questionOneResponseOne.response;
-  } else if (this.state.questionOneResponseTwo.active === true) {
-    return <img src={this.state.questionOneResponseTwo.response} alt="" />;
-  } else {
-    return '';
-  }
-}
-
-  chatBox() {
-    if(this.state.questionOneResponseOne.active === true || this.state.questionOneResponseTwo.active === true) {
-      return (
-        <div>
+  return (
+  <div>
           <div>
-            { this.displayResponse() }
-          </div>
-          <button>Continue</button>
-        </div>
-      )     
-    } else {
-      return (
-        <div>
-          <div>
-            { this.displayQuestion() }
+            { this.state.questions[this.state.questionsIndex] }
           </div>
          
             <form onSubmit={this.handleSubmit}>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
                 <label class="form-check-label" for="exampleRadios1">
-                  A bicycle
+                  {this.state.optionOne[this.state.optionIndex]}
                 </label>
               </div>
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="questionOneOptionTwo" id="exampleRadios2" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
                 <label class="form-check-label" for="exampleRadios2">
-                  A green mountain
+                  {this.state.optionTwo[this.state.optionIndex]}
                 </label>
               </div>
               <input type="submit" class="btn btn-primary" value="Submit"/>
             </form>
           </div>
+  )
+}
+
+  chatBox() {
+    if(this.state.questionResponseToggle === true) {
+      return (
+        <div>
+          <div>
+            { this.displayResponse() }
+          </div>
+          <button onClick={() => {this.newQuestion()}}>
+            Continue
+          </button>
+        </div>
+      )     
+    } else {
+      return (
+        <div>
+          {this.displayQuestion()}
+        </div>
       )
     }
   }
 
   render() {
-    if (this.state.greeting.greeting.length > 0) {
+    if (this.state.greeting.length > 0) {
       return (
         this.greeting()
       )
