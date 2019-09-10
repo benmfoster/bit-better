@@ -24,9 +24,10 @@ class App extends React.Component {
       'Bar.',
       'Liquor.',
       'Rocks.',
-      'the south of southest south.',
-      'less than a gram of weight, so you begin to float into the air like a geranium cast loose from its holding stem.',
-      'a million hungry little fish nibbling on your toes.'
+      'Concert.',
+      'Pop.',
+      'Boy Band.'
+      
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -34,22 +35,23 @@ class App extends React.Component {
       'Gym.',
       'Beer.',
       'Straight up.',
-      'the enchanting song of an ancient mystery.',
-      'cupboards full of ceramic ware from time from her youth, now dusty and smelling of old dirt.',
-      'caramel chocolates and cotton candy.'
+      'Stay home.',
+      'Hip hop.',
+      'Pop diva'
     ];
     const questions = [
       'How are you feeling today?',
       'Bar guy or gym guy?',
       'Liquor or beer?',
       'Rocks or straight up?',
-      'Is it north or west that you desire?',
-      'What beings eat lunch in the daytime?',
-      'Could a man watch over his own visions?'
+      'Concert or stay home?',
+      'Pop or hip hop?',
+      'Boy band or diva?'
     ];
     const responseAPIs = [
-      'https://www.thecocktaildb.com/api/json/v1/1/random.php'
-    ]
+      'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+      'https://www.youtube.com/watch?v=4fndeDfaWCg&list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6'
+    ];
     const questionsIndex = 0;
     const result = ''
     this.state = {
@@ -93,67 +95,69 @@ greeting() {
 }
 
 newQuestion() {
+  //story 1
   if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option1') {
-    const option = this.state.optionIndex + 1
-    const question = this.state.questionsIndex + 1
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
     this.setState({
       optionIndex: option, 
       questionsIndex: question 
-    }); 
-  }
-  if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 'someNumber'
-    const question = this.state.questionsIndex + 'someNumber'
-    this.setState({
-      optionIndex: option, 
-      questionsIndex: question
     }); 
   }
   if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option1') {
-    const option = this.state.optionIndex + 1
-    const question = this.state.questionsIndex + 1
-    this.setState({
-      optionIndex: option, 
-      questionsIndex: question 
-    }); 
-  }
-  if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 'someNumber'
-    const question = this.state.questionsIndex + 'someNumber'
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
     this.setState({
       optionIndex: option, 
       questionsIndex: question 
     }); 
   }
   if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option1') {
-    const option = this.state.optionIndex + 1
-    const question = this.state.questionsIndex + 1
-    this.setState({
-      optionIndex: option, 
-      questionsIndex: question 
-    }); 
-  }   
-  if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 'someNumber'
-    const question = this.state.questionsIndex + 'someNumber'
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
     this.setState({
       optionIndex: option, 
       questionsIndex: question 
     }); 
   }
   if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option1') {
-    console.log(this.state.questionsIndex);
-    const question = this.state.questionsIndex + 1
     this.setState({
       result: 'result1',
-      questionsIndex: question
-    })
-  }  
-  if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
+      questionsIndex: 'out'
+    });
+  }
+  
+  // story 2
+  if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 4;
+    const question = this.state.questionsIndex + 4;
     this.setState({
-      result: 'someNumberResult'
-    })
-  }         
+      optionIndex: option, 
+      questionsIndex: question
+    });
+  } 
+  if(this.state.questionsIndex === 4 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 5 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+  if(this.state.questionsIndex === 6 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'result2',
+      questionsIndex: 'out'
+    });
+  }
 }
 
 displayQuestion() {
@@ -196,17 +200,30 @@ displayQuestion() {
       return (
       <div>
         {this.state.responseAPIs[0]}
-        Hi guys!!!!
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
-    } else {
+    }
+    if(this.state.result === 'result2') {
       return (
-        <div>
-          404
-        </div>
+      <div>
+        {this.state.responseAPIs[1]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      
       )
     }
   }
+
+resetPage() {
+  this.setState({
+    greeting: 'Welcome to Bit Better',
+    selectedOption: 'option1',
+    optionIndex: 0,
+    questionsIndex: 0,
+    result: ''
+  })
+}
 
   render() {
     if (this.state.greeting.length > 0) {
@@ -350,7 +367,7 @@ displayQuestion() {
         />
         </div>
       )
-    } else if(this.state.questionsIndex < 4) {
+    } else if(this.state.questionsIndex != 'out') {
       return (
         <div id="particles-js">
           {this.chatBox()}
