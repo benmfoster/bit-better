@@ -190,6 +190,7 @@ displayQuestion() {
       return (
         <div>
           {this.displayQuestion()}
+          <h1 onClick={() => { this.resetPage() }}>Return</h1>
         </div>
       )
   }
