@@ -26,8 +26,8 @@ class App extends React.Component {
       'Rocks.',
       'Concert.',
       'Pop.',
-      'Boy Band.'
-      
+      'Boy Band.',
+      'Beer genre 1'
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -37,7 +37,8 @@ class App extends React.Component {
       'Straight up.',
       'Stay home.',
       'Hip hop.',
-      'Pop diva'
+      'Pop diva',
+      'Beer genre 2'
     ];
     const questions = [
       'How are you feeling today?',
@@ -46,11 +47,14 @@ class App extends React.Component {
       'Rocks or straight up?',
       'Concert or stay home?',
       'Pop or hip hop?',
-      'Boy band or diva?'
+      'Boy band or diva?',
+      'A question about beer.'
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
-      'https://www.youtube.com/watch?v=4fndeDfaWCg&list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6'
+      'https://www.youtube.com/embed/videoseries?list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6',
+      'https://www.thecocktaildb.com/api.php?ref=apilist.fun',
+      'https://untappd.com/api/docs', 'https://untappd.com/api/docs'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -95,7 +99,7 @@ greeting() {
 }
 
 newQuestion() {
-  //story 1
+  // cocktail story
   if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option1') {
     const option = this.state.optionIndex + 1;
     const question = this.state.questionsIndex + 1;
@@ -127,7 +131,7 @@ newQuestion() {
     });
   }
   
-  // story 2
+  // boy band story
   if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option2') {
     const option = this.state.optionIndex + 4;
     const question = this.state.questionsIndex + 4;
@@ -157,6 +161,37 @@ newQuestion() {
       result: 'result2',
       questionsIndex: 'out'
     });
+  }
+
+  // martini story
+if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
+  this.setState({
+    result: 'result3',
+    questionsIndex: 'out'
+  })
+}
+
+  // beer stories
+  if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 5;
+    const question = this.state.questionsIndex + 5;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+
+  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'result4', 
+      questionsIndex: 'out' 
+    }); 
+  }
+  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'result5', 
+      questionsIndex: 'out' 
+    }); 
   }
 }
 
@@ -196,7 +231,6 @@ displayQuestion() {
   }
 
   fin() {
-    console.log(this.state.result);
     if(this.state.result === 'result1') {
       return (
       <div>
@@ -208,10 +242,36 @@ displayQuestion() {
     if(this.state.result === 'result2') {
       return (
       <div>
-        {this.state.responseAPIs[1]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       
+      )
+    }
+
+    if(this.state.result === 'result3') {
+      return (
+        <div>
+        {this.state.responseAPIs[2]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'result4') {
+      return (
+        <div>
+        {this.state.responseAPIs[3]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'result5') {
+      return (
+        <div>
+        {this.state.responseAPIs[4]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
       )
     }
   }
@@ -368,7 +428,7 @@ resetPage() {
         />
         </div>
       )
-    } else if(this.state.questionsIndex != 'out') {
+    } else if(this.state.questionsIndex !== 'out') {
       return (
         <div id="particles-js">
           {this.chatBox()}
