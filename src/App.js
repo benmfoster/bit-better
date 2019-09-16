@@ -30,7 +30,8 @@ class App extends React.Component {
       'Beer genre 1.',
       'Yoga.',
       'Energize.',
-      'Leg.'
+      'Leg.',
+      'Biggie.'
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -44,7 +45,8 @@ class App extends React.Component {
       'Beer genre 2.',
       'Weights.',
       'Wind down.',
-      'Arm.'
+      'Arm.',
+      'Tupac.'
     ];
     const questions = [
       'How are you feeling today?',
@@ -57,7 +59,8 @@ class App extends React.Component {
       'A question about beer.',
       'Yoga or free weights?',
       'Energize or wind down?',
-      'Leg Day or Arm Day?'
+      'Leg Day or Arm Day?',
+      'Biggie or Tupac?'
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
@@ -69,7 +72,8 @@ class App extends React.Component {
       'meditative-yoga-vid',
       'leg-workout-vid',
       'arm-workout-vid',
-      'pop-diva'
+      'pop-diva',
+      'biggie-spotify-playlist'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -184,6 +188,22 @@ newQuestion() {
       result: 'pop-diva',
       questionsIndex: 'out'
     });
+  }
+
+  //Biggie story
+  if(this.state.questionsIndex === 5 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 6;
+    const question = this.state.questionsIndex + 6;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+  if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'biggie-spotify-playlist', 
+      questionsIndex: 'out'
+    }); 
   }
 
   // martini story
@@ -319,8 +339,7 @@ displayQuestion() {
     if(this.state.result === 'boy-band') {
       return (
       <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       
@@ -330,7 +349,6 @@ displayQuestion() {
       return (
       <div>
         {this.state.responseAPIs[9]}
-        
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       
@@ -389,6 +407,14 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[8]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'biggie-spotify-playlist') {
+      return (
+        <div>
+        {this.state.responseAPIs[10]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
