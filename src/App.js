@@ -73,7 +73,8 @@ class App extends React.Component {
       'leg-workout-vid',
       'arm-workout-vid',
       'pop-diva',
-      'biggie-spotify-playlist'
+      'biggie-spotify-playlist',
+      'tupac-spotify-playlist'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -202,6 +203,15 @@ newQuestion() {
   if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option1') {
     this.setState({
       result: 'biggie-spotify-playlist', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // Tupac story
+
+  if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'tupac-spotify-playlist', 
       questionsIndex: 'out'
     }); 
   }
@@ -415,6 +425,14 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[10]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'tupac-spotify-playlist') {
+      return (
+        <div>
+        {this.state.responseAPIs[11]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
