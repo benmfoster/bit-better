@@ -68,7 +68,8 @@ class App extends React.Component {
       'energy-yoga-vid',
       'meditative-yoga-vid',
       'leg-workout-vid',
-      'arm-workout-vid'
+      'arm-workout-vid',
+      'pop-diva'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -173,6 +174,14 @@ newQuestion() {
   if(this.state.questionsIndex === 6 && this.state.selectedOption === 'option1') {
     this.setState({
       result: 'boy-band',
+      questionsIndex: 'out'
+    });
+  }
+
+  //pop diva story
+  if(this.state.questionsIndex === 6 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'pop-diva',
       questionsIndex: 'out'
     });
   }
@@ -311,6 +320,16 @@ displayQuestion() {
       return (
       <div>
         <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      
+      )
+    }
+    if(this.state.result === 'pop-diva') {
+      return (
+      <div>
+        {this.state.responseAPIs[9]}
         
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
