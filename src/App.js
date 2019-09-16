@@ -29,7 +29,8 @@ class App extends React.Component {
       'Boy Band.',
       'Beer genre 1.',
       'Yoga.',
-      'Energize.'
+      'Energize.',
+      'Leg.'
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -42,7 +43,8 @@ class App extends React.Component {
       'Pop diva.',
       'Beer genre 2.',
       'Weights.',
-      'Wind down.'
+      'Wind down.',
+      'Arm.'
     ];
     const questions = [
       'How are you feeling today?',
@@ -54,7 +56,8 @@ class App extends React.Component {
       'Boy band or diva?',
       'A question about beer.',
       'Yoga or free weights?',
-      'Energize or wind down?'
+      'Energize or wind down?',
+      'Leg Day or Arm Day?'
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
@@ -63,7 +66,9 @@ class App extends React.Component {
       'https://untappd.com/api/docs',
       'https://untappd.com/api/docs',
       'energy-yoga-vid',
-      'meditative-yoga-vid'
+      'meditative-yoga-vid',
+      'leg-workout-vid',
+      'arm-workout-vid'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -234,6 +239,28 @@ if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
         questionsIndex: 'out' 
       }); 
     }
+
+    // weights stories
+    if(this.state.questionsIndex === 8 && this.state.selectedOption === 'option2') {
+      const option = this.state.optionIndex + 2;
+      const question = this.state.questionsIndex + 2;
+      this.setState({
+        optionIndex: option, 
+        questionsIndex: question 
+      }); 
+    }
+    if(this.state.questionsIndex === 10 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'leg-workout-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
+    if(this.state.questionsIndex === 10 && this.state.selectedOption === 'option2') {
+      this.setState({
+        result: 'arm-workout-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
 }
 
 displayQuestion() {
@@ -327,6 +354,22 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[6]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'leg-workout-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[7]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'arm-workout-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[8]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
