@@ -31,7 +31,9 @@ class App extends React.Component {
       'Yoga.',
       'Energize.',
       'Leg.',
-      'Biggie.'
+      'Biggie.',
+      'Netflix.',
+      'Drama.'
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -46,7 +48,9 @@ class App extends React.Component {
       'Weights.',
       'Wind down.',
       'Arm.',
-      'Tupac.'
+      'Tupac.',
+      'Food Network.',
+      'Comedy.'
     ];
     const questions = [
       'How are you feeling today?',
@@ -60,7 +64,9 @@ class App extends React.Component {
       'Yoga or free weights?',
       'Energize or wind down?',
       'Leg Day or Arm Day?',
-      'Biggie or Tupac?'
+      'Biggie or Tupac?',
+      'Netflix and chill or Food Network and eat?',
+      'Drama or comedy?'
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
@@ -74,7 +80,8 @@ class App extends React.Component {
       'arm-workout-vid',
       'pop-diva',
       'biggie-spotify-playlist',
-      'tupac-spotify-playlist'
+      'tupac-spotify-playlist',
+      'drama-vid'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -208,10 +215,33 @@ newQuestion() {
   }
 
   // Tupac story
-
   if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option2') {
     this.setState({
       result: 'tupac-spotify-playlist', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // drama story
+  if(this.state.questionsIndex === 4 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 8;
+    const question = this.state.questionsIndex + 8;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 12 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 13 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'drama-vid', 
       questionsIndex: 'out'
     }); 
   }
@@ -433,6 +463,14 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[11]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'drama-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[12]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
