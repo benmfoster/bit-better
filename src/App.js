@@ -33,7 +33,8 @@ class App extends React.Component {
       'Leg.',
       'Biggie.',
       'Netflix.',
-      'Drama.'
+      'Drama.',
+      'Salty.'
     ];
     const optionIndex = 0;
     const optionTwo = [
@@ -50,7 +51,8 @@ class App extends React.Component {
       'Arm.',
       'Tupac.',
       'Food Network.',
-      'Comedy.'
+      'Comedy.',
+      'Sweet.'
     ];
     const questions = [
       'How are you feeling today?',
@@ -66,7 +68,8 @@ class App extends React.Component {
       'Leg Day or Arm Day?',
       'Biggie or Tupac?',
       'Netflix and chill or Food Network and eat?',
-      'Drama or comedy?'
+      'Drama or comedy?',
+      'Salty or sweet?'
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
@@ -82,7 +85,8 @@ class App extends React.Component {
       'biggie-spotify-playlist',
       'tupac-spotify-playlist',
       'drama-vid',
-      'comedy-vid'
+      'comedy-vid',
+      'salty'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -205,7 +209,7 @@ newQuestion() {
     const question = this.state.questionsIndex + 6;
     this.setState({
       optionIndex: option, 
-      questionsIndex: question 
+      questionsIndex: question
     }); 
   }
   if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option1') {
@@ -254,6 +258,23 @@ newQuestion() {
       questionsIndex: 'out'
     }); 
   }
+
+  // salty story
+  if(this.state.questionsIndex === 12 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 2;
+    const question = this.state.questionsIndex + 2;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+    if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'salty',
+        questionsIndex: 'out'
+      })
+    }
+
 
   // martini story
 if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
@@ -488,6 +509,14 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[13]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'salty') {
+      return (
+        <div>
+        {this.state.responseAPIs[14]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
