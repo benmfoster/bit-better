@@ -86,7 +86,8 @@ class App extends React.Component {
       'tupac-spotify-playlist',
       'drama-vid',
       'comedy-vid',
-      'salty'
+      'salty',
+      'sweet'
     ];
     const questionsIndex = 0;
     const result = ''
@@ -274,6 +275,15 @@ newQuestion() {
         questionsIndex: 'out'
       })
     }
+
+// sweet story
+
+if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option2') {
+  this.setState({
+    result: 'sweet',
+    questionsIndex: 'out'
+  })
+}
 
 
   // martini story
@@ -517,6 +527,14 @@ displayQuestion() {
       return (
         <div>
         {this.state.responseAPIs[14]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'sweet') {
+      return (
+        <div>
+        {this.state.responseAPIs[15]}
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
