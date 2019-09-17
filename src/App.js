@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 
-
 class App extends React.Component {
 
 
@@ -12,7 +11,7 @@ class App extends React.Component {
     const greeting = 'Welcome to Bit Better';
     const selectedOption = 'option1';
     const optionOne = [
-      'Sad.', 
+      '/img/1-happy.png', 
       'Bar.',
       'Liquor.',
       'Rocks.',
@@ -30,7 +29,7 @@ class App extends React.Component {
     ];
     const optionIndex = 0;
     const optionTwo = [
-      'Happy!', 
+      '/img/1-sad.png', 
       'Gym.',
       'Beer.',
       'Straight up.',
@@ -111,13 +110,13 @@ handleSubmit(event) {
 
 greeting() {
     return (
-      <div>
-
-        <h1 onClick={() => { 
+      <div id ="particles-js">
+      <div id="container">
+        <h2 onClick={() => { 
           this.setState({ greeting: '' }); 
-        }}>{ this.state.greeting }</h1>
+        }}>{ this.state.greeting }</h2>
 
-          
+          </div>
 
       </div>
     )
@@ -366,26 +365,32 @@ if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
 
 displayQuestion() {
   return (
-  <div>
-          <div>
-            { this.state.questions[this.state.questionsIndex] }
+  <div id ="particles-js">
+      <div id="container">
+      <h2>
+        { this.state.questions[this.state.questionsIndex] }
+      </h2>
+      
+        <form onSubmit={this.handleSubmit}>
+
+          <div class="option-selector">
+            
+            <input class="radio-item" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
+            <label class="label-item" for="exampleRadios1">
+              <img src={this.state.optionOne[this.state.optionIndex]} class="img-option"/>
+            </label>
+
+            <input class="radio-item" type="radio" name="questionOneOptionTwo" id="exampleRadios2" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
+            <label class="label-item" for="exampleRadios2">
+              <img src={this.state.optionTwo[this.state.optionIndex]} class="img-option"/>
+            </label>
+
           </div>
-         
-            <form onSubmit={this.handleSubmit}>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
-                <label class="form-check-label" for="exampleRadios1">
-                  {this.state.optionOne[this.state.optionIndex]}
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="questionOneOptionTwo" id="exampleRadios2" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
-                <label class="form-check-label" for="exampleRadios2">
-                  {this.state.optionTwo[this.state.optionIndex]}
-                </label>
-              </div>
-              <input type="submit" class="btn btn-primary" value="Submit"/>
-            </form>
+
+          <input type="submit" class="btn btn-primary" value="Submit"/>
+
+        </form>
+          </div>
           </div>
   )
 }
