@@ -110,15 +110,11 @@ handleSubmit(event) {
 
 greeting() {
     return (
-      <div id ="particles-js">
-      <div id="container">
+      <div>
         <h2 onClick={() => { 
           this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
-
           </div>
-
-      </div>
     )
 }
 
@@ -365,8 +361,7 @@ if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
 
 displayQuestion() {
   return (
-  <div id ="particles-js">
-      <div id="container">
+      <div>
       <h2>
         { this.state.questions[this.state.questionsIndex] }
       </h2>
@@ -390,8 +385,7 @@ displayQuestion() {
           <input type="submit" class="btn btn-primary" value="Submit"/>
 
         </form>
-          </div>
-          </div>
+          </div>      
   )
 }
 
