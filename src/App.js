@@ -12,60 +12,87 @@ class App extends React.Component {
     const greeting = 'Welcome to Bit Better';
     const selectedOption = 'option1';
     const optionOne = [
-      'bicycle', 
-      'a man',
-      'south, beyond the compass, were grass grows a reddish hue, and all the words of the people are full of magic.',
-      'red colors, the smell of berries, large brown mammals chewing on chestnuts.',
-      'the south of southest south.',
-      'less than a gram of weight, so you begin to float into the air like a geranium cast loose from its holding stem.',
-      'a million hungry little fish nibbling on your toes.'
+      'Sad.', 
+      'Bar.',
+      'Liquor.',
+      'Rocks.',
+      'Concert.',
+      'Pop.',
+      'Boy Band.',
+      'Beer genre 1.',
+      'Yoga.',
+      'Energize.',
+      'Leg.',
+      'Biggie.',
+      'Netflix.',
+      'Drama.',
+      'Salty.'
     ];
     const optionIndex = 0;
     const optionTwo = [
-      'a green mountain', 
-      'a song sung from the heart of the world.',
-      'down, down, down beneath the unfathomable deeps.',
-      'seething depths of bubbling curiosities, warbling calls of auburn-feathred birds, and the sea.',
-      'the enchanting song of an ancient mystery.',
-      'cupboards full of ceramic ware from time from her youth, now dusty and smelling of old dirt.',
-      'caramel chocolates and cotton candy.'
+      'Happy!', 
+      'Gym.',
+      'Beer.',
+      'Straight up.',
+      'Stay home.',
+      'Hip hop.',
+      'Pop diva.',
+      'Beer genre 2.',
+      'Weights.',
+      'Wind down.',
+      'Arm.',
+      'Tupac.',
+      'Food Network.',
+      'Comedy.',
+      'Sweet.'
     ];
-    const responses = [
-      "“You always know when you’re going to arrive. If you go by car, you don’t. Apart from anything else, I prefer cycling. It puts you in a good mood, I find.” — Alan Bennett, British playwright",
-      "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperstock.net%2Fwallpapers%2Fthumbs1%2F40079wide.jpg", 
-      "“Profound belief in something allows every individual to find an immense inner force, and to overcome his or her failings.” – Soichiro Honda", "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2F9806WHk1jH0%2Fmaxresdefault.jpg",
-      "“What would you do if you weren't afraid?” ― Spencer Johnson, Who Moved My Cheese?",
-      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fcascadeclimbers.com%2Fplab%2Fdata%2F513%2Fcold62.JPG",
-      "“For whatever we lose (like a you or a me), It's always our self we find in the sea.” ― e.e. cummings",
-      "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.seabreeze.com.au%2FImg%2FPhotos%2FStand_Up_Paddle%2F7892808.jpg",
-      "“Don't be ashamed to weep; 'tis right to grieve. Tears are only water, and flowers, trees, and fruit cannot grow without water. But there must be sunlight also. A wounded heart will heal in time, and when it does, the memory and love of our lost ones is sealed inside to comfort us.” ― Brian Jacques, Taggerung",
-      "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fnoisypilgrims.files.wordpress.com%2F2010%2F06%2Fdsc_9723_filtered.jpg",
-      "“Eventually, all things merge into one, and a river runs through it. The river was cut by the world's great flood and runs over rocks from the basement of time. On some of the rocks are timeless raindrops. Under the rocks are the words, and some of the words are theirs. I am haunted by waters.” ― Norman Maclean",
-      "https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.artsnursery.com%2Fproducts%2FBuxus_microphylla_GreenBeauty.jpg"
-    ];
-    const responsesIndex = 0;
     const questions = [
-      'Choose one.',
-      'I am born of water but when I return to water, I die. What am I?',
-      'If love were a beautiful song, where would it be sung from?',
-      'Where fare thee, gentle soul?',
-      'Is it north or west that you desire?',
-      'What beings eat lunch in the daytime?',
-      'Could a man watch over his own visions?'
+      'How are you feeling today?',
+      'Bar guy or gym guy?',
+      'Liquor or beer?',
+      'Rocks or straight up?',
+      'Concert or stay home?',
+      'Pop or hip hop?',
+      'Boy band or diva?',
+      'A question about beer.',
+      'Yoga or free weights?',
+      'Energize or wind down?',
+      'Leg Day or Arm Day?',
+      'Biggie or Tupac?',
+      'Netflix and chill or Food Network and eat?',
+      'Drama or comedy?',
+      'Salty or sweet?'
+    ];
+    const responseAPIs = [
+      'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+      'https://www.youtube.com/embed/videoseries?list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6',
+      'https://www.thecocktaildb.com/api.php?ref=apilist.fun',
+      'https://untappd.com/api/docs',
+      'https://untappd.com/api/docs',
+      'energy-yoga-vid',
+      'meditative-yoga-vid',
+      'leg-workout-vid',
+      'arm-workout-vid',
+      'pop-diva',
+      'biggie-spotify-playlist',
+      'tupac-spotify-playlist',
+      'drama-vid',
+      'comedy-vid',
+      'salty',
+      'sweet'
     ];
     const questionsIndex = 0;
-    const questionResponseToggle = false;
+    const result = ''
     this.state = {
       greeting,
       selectedOption,
       questions,
-      responses,
       questionsIndex,
-      questionResponseToggle,
       optionOne,
       optionTwo,
       optionIndex,
-      responsesIndex
+      result,
+      responseAPIs
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -79,10 +106,10 @@ handleOptionChange (changeEvent) {
 
 handleSubmit(event) {
   event.preventDefault();
-  this.setState({ questionResponseToggle: true });
+  this.newQuestion();
 }
 
-greeting () {
+greeting() {
     return (
       <div>
 
@@ -96,38 +123,245 @@ greeting () {
     )
 }
 
-displayResponse() { 
-  if(this.state.selectedOption === 'option1') {
-    return this.state.responses[this.state.responsesIndex];
-  } else if(this.state.selectedOption === 'option2') {
-    return <img src={this.state.responses[this.state.responsesIndex + 1]} alt="" />;
-  } else {
-    return '';
+newQuestion() {
+  // cocktail story
+  if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
   }
+  if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+  if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+  if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'cocktail-recipe',
+      questionsIndex: 'out'
+    });
+  }
+  
+  // boy band story
+  if(this.state.questionsIndex === 0 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 4;
+    const question = this.state.questionsIndex + 4;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    });
+  } 
+  if(this.state.questionsIndex === 4 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 5 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question 
+    }); 
+  }
+  if(this.state.questionsIndex === 6 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'boy-band',
+      questionsIndex: 'out'
+    });
+  }
+
+  //pop diva story
+  if(this.state.questionsIndex === 6 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'pop-diva',
+      questionsIndex: 'out'
+    });
+  }
+
+  //Biggie story
+  if(this.state.questionsIndex === 5 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 6;
+    const question = this.state.questionsIndex + 6;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'biggie-spotify-playlist', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // Tupac story
+  if(this.state.questionsIndex === 11 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'tupac-spotify-playlist', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // drama story
+  if(this.state.questionsIndex === 4 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 8;
+    const question = this.state.questionsIndex + 8;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 12 && this.state.selectedOption === 'option1') {
+    const option = this.state.optionIndex + 1;
+    const question = this.state.questionsIndex + 1;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+  if(this.state.questionsIndex === 13 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'drama-vid', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // comedy story
+  if(this.state.questionsIndex === 13 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'comedy-vid', 
+      questionsIndex: 'out'
+    }); 
+  }
+
+  // salty story
+  if(this.state.questionsIndex === 12 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 2;
+    const question = this.state.questionsIndex + 2;
+    this.setState({
+      optionIndex: option, 
+      questionsIndex: question
+    }); 
+  }
+    if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'salty',
+        questionsIndex: 'out'
+      })
+    }
+
+// sweet story
+
+if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option2') {
+  this.setState({
+    result: 'sweet',
+    questionsIndex: 'out'
+  })
 }
 
-newQuestion() {
-  if(this.state.selectedOption === 'option1') {
-    const option = this.state.optionIndex + 1
-    const response = this.state.responsesIndex + 2
-    const question = this.state.questionsIndex + 1
-    this.setState({ 
-      questionResponseToggle: false, 
+
+  // martini story
+if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
+  this.setState({
+    result: 'martini-recipe',
+    questionsIndex: 'out'
+  })
+}
+
+  // beer stories
+  if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 5;
+    const question = this.state.questionsIndex + 5;
+    this.setState({
       optionIndex: option, 
-      responsesIndex: response, 
       questionsIndex: question 
     }); 
-  } else if(this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 2
-    const response = this.state.responsesIndex + 4
-    const question = this.state.questionsIndex + 2
-    this.setState({ 
-      questionResponseToggle: false, 
+  }
+
+  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option1') {
+    this.setState({
+      result: 'beer-genre1', 
+      questionsIndex: 'out' 
+    }); 
+  }
+  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option2') {
+    this.setState({
+      result: 'beer-genre2', 
+      questionsIndex: 'out' 
+    }); 
+  }
+
+  // gym stories
+  if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option2') {
+    const option = this.state.optionIndex + 7;
+    const question = this.state.questionsIndex + 7;
+    this.setState({
       optionIndex: option, 
-      responsesIndex: response, 
       questionsIndex: question 
     }); 
-  }  
+  }
+
+    // yoga stories
+    if(this.state.questionsIndex === 8 && this.state.selectedOption === 'option1') {
+      const option = this.state.optionIndex + 1;
+      const question = this.state.questionsIndex + 1;
+      this.setState({
+        optionIndex: option, 
+        questionsIndex: question 
+      }); 
+    }
+    if(this.state.questionsIndex === 9 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'energy-yoga-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
+    if(this.state.questionsIndex === 9 && this.state.selectedOption === 'option2') {
+      this.setState({
+        result: 'meditative-yoga-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
+
+    // weights stories
+    if(this.state.questionsIndex === 8 && this.state.selectedOption === 'option2') {
+      const option = this.state.optionIndex + 2;
+      const question = this.state.questionsIndex + 2;
+      this.setState({
+        optionIndex: option, 
+        questionsIndex: question 
+      }); 
+    }
+    if(this.state.questionsIndex === 10 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'leg-workout-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
+    if(this.state.questionsIndex === 10 && this.state.selectedOption === 'option2') {
+      this.setState({
+        result: 'arm-workout-vid', 
+        questionsIndex: 'out' 
+      }); 
+    }
 }
 
 displayQuestion() {
@@ -157,35 +391,157 @@ displayQuestion() {
 }
 
   chatBox() {
-   
-    if(this.state.questionResponseToggle === true) {
-      return (
-        <div>
-          <div>
-            { this.displayResponse() }
-          </div>
-          <button onClick={() => {this.newQuestion()}}>
-            Continue
-          </button>
-        </div>
-      )     
-    } else {
       return (
         <div>
           {this.displayQuestion()}
+          <h1 onClick={() => { this.resetPage() }}>Return</h1>
         </div>
+      )
+  }
+
+  fin() {
+    if(this.state.result === 'cocktail-recipe') {
+      return (
+      <div>
+        {this.state.responseAPIs[0]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'boy-band') {
+      return (
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      
+      )
+    }
+    if(this.state.result === 'pop-diva') {
+      return (
+      <div>
+        {this.state.responseAPIs[9]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      
+      )
+    }
+
+    if(this.state.result === 'martini-recipe') {
+      return (
+        <div>
+        {this.state.responseAPIs[2]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'beer-genre1') {
+      return (
+        <div>
+        {this.state.responseAPIs[3]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'beer-genre2') {
+      return (
+        <div>
+        {this.state.responseAPIs[4]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'energy-yoga-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[5]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'meditative-yoga-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[6]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'leg-workout-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[7]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'arm-workout-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[8]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'biggie-spotify-playlist') {
+      return (
+        <div>
+        {this.state.responseAPIs[10]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'tupac-spotify-playlist') {
+      return (
+        <div>
+        {this.state.responseAPIs[11]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'drama-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[12]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'comedy-vid') {
+      return (
+        <div>
+        {this.state.responseAPIs[13]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'salty') {
+      return (
+        <div>
+        {this.state.responseAPIs[14]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+      )
+    }
+    if(this.state.result === 'sweet') {
+      return (
+        <div>
+        {this.state.responseAPIs[15]}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
       )
     }
   }
 
-  fin() {
-    return (
-      <div>
-        You are a beautiful person.
-      </div>
-
-    )
-  }
+resetPage() {
+  this.setState({
+    greeting: 'Welcome to Bit Better',
+    selectedOption: 'option1',
+    optionIndex: 0,
+    questionsIndex: 0,
+    result: ''
+  })
+}
 
   render() {
     if (this.state.greeting.length > 0) {
@@ -329,7 +685,7 @@ displayQuestion() {
         />
         </div>
       )
-    } else if (this.state.questionsIndex < 7) {
+    } else if(this.state.questionsIndex !== 'out') {
       return (
         <div id="particles-js">
           {this.chatBox()}
@@ -341,7 +697,6 @@ displayQuestion() {
                 {
                 number:
                   {
-                    value:320,
                     density:
                       {
                         enable:true,
@@ -354,7 +709,6 @@ displayQuestion() {
                   },
                 shape:
                   {
-                    "type":"star",
                     "stroke":
                       {
                         "width":0,
@@ -382,12 +736,10 @@ displayQuestion() {
                   },
                 size:
                   {
-                    "value":6,
                     "random":true,"anim":
                     {
                       "enable":false,
                       "speed":4,
-                      "size_min":0.8,
                       "sync":false
                     }
                   },
@@ -472,7 +824,144 @@ displayQuestion() {
       )
     } else {
       return (
-        this.fin()
+        <div id="particles-js">
+          {this.fin()}
+          <Particles 
+            params = 
+            {
+              {
+                particles:
+                {
+                number:
+                  {
+                    value:160,
+                    density:
+                      {
+                        enable:true,
+                        value_area:800
+                      }
+                  },
+                color:
+                  {
+                    value:"#ffffff"
+                  },
+                shape:
+                  {
+                    "type":"circle",
+                    "stroke":
+                      {
+                        "width":0,
+                        "color":"#000000"
+                      },
+                    "polygon":
+                      {
+                        "nb_sides":5
+                      },
+                    "image":
+                      {
+                        "src":"img/github.svg",
+                        "width":100,
+                        "height":100
+                      }
+                  },
+                opacity:
+                  {"value":1,"random":true,"anim":
+                    {
+                      "enable":true,
+                      "speed":1,
+                      "opacity_min":0,
+                      "sync":false
+                    }
+                  },
+                size:
+                  {
+                    "value":3,
+                    "random":true,"anim":
+                    {
+                      "enable":false,
+                      "speed":4,
+                      "size_min":0.3,
+                      "sync":false
+                    }
+                  },
+                line_linked:
+                  {
+                    "enable":false,
+                    "distance":150,
+                    "color":"#ffffff",
+                    "opacity":0.4,
+                    "width":1
+                  },
+                move:
+                  {
+                    "enable":true,
+                    "speed":1,
+                    "direction":"none",
+                    "random":true,
+                    "straight":false,
+                    "out_mode":"out",
+                    "bounce":false,
+                    "attract":
+                      {
+                        "enable":false,
+                        "rotateX":600,"rotateY":600
+                      }
+                  },
+                interactivity:
+                  {
+                    "detect_on":"canvas",
+                    "events":
+                      {
+                        "onhover":
+                          {
+                            "enable":true,
+                            "mode":"bubble"
+                          },
+                        "onclick":
+                          {
+                            "enable":true,
+                            "mode":"repulse"
+                          },
+                        "resize":true
+                      },
+                    "modes":
+                      {
+                        "grab":
+                          {
+                            "distance":400,
+                            "line_linked":
+                              {"opacity":1}
+                          },
+                        "bubble":
+                          {
+                            "distance":250,
+                            "size":0,
+                            "duration":2,
+                            "opacity":0,
+                            "speed":3
+                          },
+                        "repulse":
+                          {
+                            "distance":400,
+                            "duration":0.4
+                          },
+                        "push":
+                          {
+                            "particles_nb":4
+                          },
+                        "remove":
+                          {
+                            "particles_nb":2
+                          }
+                      }
+                  },
+                    "retina_detect":false
+                }
+              }
+            }
+          />
+
+        </div>
       )
     }
     
@@ -480,4 +969,3 @@ displayQuestion() {
 }
 
 export default App;
-

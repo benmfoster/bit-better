@@ -1,9 +1,4 @@
-/* ---- reset ---- */ 
-body{ 
-  margin:0; 
-  font:normal 75% Arial, Helvetica, sans-serif; 
-  color: white;
-}
+
 
 canvas{ 
   /*position:absolute;
@@ -21,9 +16,3 @@ canvas{
   background-size: cover; 
   background-position: 50% 50%; 
   } 
-
-
-.App {
-  text-align: center;
-}
-
