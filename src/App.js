@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 
+
 class App extends React.Component {
 
 
@@ -11,39 +12,39 @@ class App extends React.Component {
     const greeting = 'Welcome to Bit Better';
     const selectedOption = 'option1';
     const optionOne = [
-      '/img/1-happy.png', 
-      'Bar.',
-      'Liquor.',
-      'Rocks.',
-      'Concert.',
-      'Pop.',
-      'Boy Band.',
-      'Beer genre 1.',
-      'Yoga.',
-      'Energize.',
-      'Leg.',
-      'Biggie.',
-      'Netflix.',
-      'Drama.',
-      'Salty.'
+      '/img/1-sad.png', 
+      '/img/2-bar.jpg',
+      '/img/3-liquor.jpg',
+      '/img/4-rocks.jpg',
+      '/img/5-concert.png',
+      '/img/6-pop.png',
+      '/img/7-boyband.jpg',
+      '/img/8-macro.png',
+      '/img/9-yoga.png',
+      '/img/10-energize.png',
+      '/img/11-leg.png',
+      '/img/12-biggie.png',
+      '/img/13-netflix.png',
+      '/img/14-drama.png',
+      '/img/15-salty.png'
     ];
     const optionIndex = 0;
     const optionTwo = [
-      '/img/1-sad.png', 
-      'Gym.',
-      'Beer.',
-      'Straight up.',
-      'Stay home.',
-      'Hip hop.',
-      'Pop diva.',
-      'Beer genre 2.',
-      'Weights.',
-      'Wind down.',
-      'Arm.',
-      'Tupac.',
-      'Food Network.',
-      'Comedy.',
-      'Sweet.'
+      '/img/1-happy.png', 
+      '/img/2-gym.jpg',
+      '/img/3-beer.png',
+      '/img/4-straightup.jpg',
+      '/img/5-home.png',
+      '/img/6-hiphop.png',
+      '/img/7-popdiva.png',
+      '/img/8-micro.png',
+      '/img/9-weights.png',
+      '/img/10-winddown.png',
+      '/img/11-arm.png',
+      '/img/12-tupac.png',
+      '/img/13-foodnetwork.png',
+      '/img/14-comedy.png',
+      '/img/15-sweet.png'
     ];
     const questions = [
       'How are you feeling today?',
@@ -53,7 +54,7 @@ class App extends React.Component {
       'Concert or stay home?',
       'Pop or hip hop?',
       'Boy band or diva?',
-      'A question about beer.',
+      'Macro or Micro? 😎',
       'Yoga or free weights?',
       'Energize or wind down?',
       'Leg Day or Arm Day?',
@@ -112,12 +113,12 @@ greeting() {
     return (
       <div id ="particles-js">
       <div id="container">
+
         <h2 onClick={() => { 
           this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
 
           </div>
-
       </div>
     )
 }
@@ -365,7 +366,7 @@ if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
 
 displayQuestion() {
   return (
-  <div id ="particles-js">
+  <div id="particles-js">
       <div id="container">
       <h2>
         { this.state.questions[this.state.questionsIndex] }

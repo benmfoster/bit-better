@@ -1,13 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700,900,400italic,700italic,900italic);
 
 
-canvas{ 
-  /*position:absolute;*/
-  bottom:0;
-  display:block;
-  vertical-align:bottom;
-  position: static;
-} 
 
 /*particles.js container */ 
 #particles-js{ 
@@ -20,6 +13,14 @@ canvas{
   background-size: cover; 
   background-position: 50% 50%; 
   } 
+
+  #particles-js canvas { 
+  /*position:absolute;*/
+  bottom:0;
+  display:block;
+  vertical-align:bottom;
+  position: static;
+} 
 /*end particles.js container*/
 
 body {
@@ -181,6 +182,8 @@ input[type=submit]{
   border-radius:10px;
 
 }
+
+
 
 
 
