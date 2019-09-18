@@ -198,8 +198,9 @@ greeting() {
                         "rotateX":600,"rotateY":600
                       }
                   },
+                },
                 interactivity:
-                  {
+                {
                     "detect_on":"canvas",
                     "events":
                       {
@@ -245,9 +246,9 @@ greeting() {
                             "particles_nb":2
                           }
                       }
-                  },
-                    "retina_detect":false
-                }
+                },
+                  "retina_detect":false
+                
               }
             }
           />
@@ -914,6 +915,7 @@ resetPage() {
                         "rotateX":600,"rotateY":600
                       }
                   },
+                },
                 interactivity:
                   {
                     "detect_on":"canvas",
@@ -964,7 +966,7 @@ resetPage() {
                   },
                     "retina_detect":false
                 }
-              }
+              
             }
           />
 
