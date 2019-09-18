@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
+import axios from 'axios';
 
 
 class App extends React.Component {
@@ -65,21 +66,37 @@ class App extends React.Component {
     ];
     const responseAPIs = [
       'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+      // rocks cocktail
       'https://www.youtube.com/embed/videoseries?list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6',
+      // boyband^
       'https://www.thecocktaildb.com/api.php?ref=apilist.fun',
+      // martini
       'https://untappd.com/api/docs',
+      // micro^
       'https://untappd.com/api/docs',
-      'energy-yoga-vid',
-      'meditative-yoga-vid',
-      'leg-workout-vid',
-      'arm-workout-vid',
-      'pop-diva',
-      'biggie-spotify-playlist',
-      'tupac-spotify-playlist',
+      // macrto^
+      'https://www.youtube.com/embed/K-Ina_WW4Yc', 
+      // energy yoga^
+      'https://www.youtube.com/embed/BiWDsfZ3zbo',
+      // meditation yoga^
+      'https://www.youtube.com/embed/0rUHHiAAIrE',
+      // leg day^
+      'https://www.youtube.com/embed/ZLzKJEclj48',
+      // arm day^
+      'https://www.youtube.com/embed/videoseries?list=PLw8YSrb2y7zM6SOibmEC52SW8P4ImKKim', 
+      // pop diva playlist^
+      'https://www.youtube.com/embed/videoseries?list=RDEM_uQu2suzhQwyacPk3GQKJg',
+      // biggie playlist^
+      'https://www.youtube.com/embed/videoseries?list=PLTHVfDbNnxSbk8uy7P1cUsQWsMvf8bDIk',
+      //  tupac playlist  ^
       'drama-vid',
+      // drama
       'comedy-vid',
+      // comedy
       'salty',
+      // salty
       'sweet'
+      // sweet
     ];
     const questionsIndex = 0;
     const result = ''
@@ -541,13 +558,19 @@ displayQuestion() {
 
   fin() {
     if(this.state.result === 'cocktail-recipe') {
-      return (
-      <div>
-        {this.state.responseAPIs[0]}
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
+          const url = this.state.responseAPIs[0];
+          axios.get(url).then(response => { this.setState({ 
+            drink: response.data.drinks[0].strDrink,
+            })
+      });
+          return (
+          <div>
+            <h2>{this.state.drink}</h2>
+            <h1 onClick={() => { this.resetPage() }}>Return</h1>
+          </div>
+          )
+        }
+
     if(this.state.result === 'boy-band') {
       return (
       <div>
@@ -560,7 +583,7 @@ displayQuestion() {
     if(this.state.result === 'pop-diva') {
       return (
       <div>
-        {this.state.responseAPIs[9]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[9]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       
@@ -594,7 +617,7 @@ displayQuestion() {
     if(this.state.result === 'energy-yoga-vid') {
       return (
         <div>
-        {this.state.responseAPIs[5]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[5]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -602,7 +625,7 @@ displayQuestion() {
     if(this.state.result === 'meditative-yoga-vid') {
       return (
         <div>
-        {this.state.responseAPIs[6]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[6]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -610,7 +633,7 @@ displayQuestion() {
     if(this.state.result === 'leg-workout-vid') {
       return (
         <div>
-        {this.state.responseAPIs[7]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[7]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -618,7 +641,7 @@ displayQuestion() {
     if(this.state.result === 'arm-workout-vid') {
       return (
         <div>
-        {this.state.responseAPIs[8]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[8]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -626,7 +649,7 @@ displayQuestion() {
     if(this.state.result === 'biggie-spotify-playlist') {
       return (
         <div>
-        {this.state.responseAPIs[10]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[10]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -634,7 +657,7 @@ displayQuestion() {
     if(this.state.result === 'tupac-spotify-playlist') {
       return (
         <div>
-        {this.state.responseAPIs[11]}
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[11]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
