@@ -13,8 +13,8 @@
   background-position: 50% 50%; 
   } 
 
-  #particles-js canvas { 
-  /*position:absolute;*/
+  canvas { 
+  position:absolute;
   bottom:0;
   display:block;
   vertical-align:bottom;
@@ -23,9 +23,10 @@
 /*end particles.js container*/
 
 body {
+  margin:0; font:normal 75% Arial, Helvetica, sans-serif;
     background-color: #fdf9fd;
     color: #ffffff;
-    font: 16px/1.25 'Raleway', sans-serif;
+    /*font: 16px/1.25 'Raleway', sans-serif;*/
     text-align: center;
     margin:0;
 }
