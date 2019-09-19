@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
-import axios from 'axios';
 
 
 class App extends React.Component {
@@ -526,7 +525,7 @@ displayQuestion() {
       
         <form onSubmit={this.handleSubmit}>
 
-          <div class="option-selector">
+          <div class="option-selector animated zoomIn">
             
             <input class="radio-item" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
             <label class="label-item" for="exampleRadios1">
