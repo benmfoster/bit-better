@@ -130,7 +130,7 @@ greeting() {
       <div>
         <div id="container">
 
-          <h2 onClick={() => { 
+          <h2 class="greeting" onClick={() => { 
            this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
         <p>An inspirational wellness quiz bot.</p>

@@ -72,6 +72,9 @@ code {
         z-index: 9999;
         margin-bottom:60px;
     }
+    h2.greeting {
+      cursor:pointer;
+    }
 
     h2:hover {
         animation-play-state: paused;
