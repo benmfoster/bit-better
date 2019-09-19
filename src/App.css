@@ -40,6 +40,14 @@ body {
     min-height: 100vh;
     padding: 1em;
     width: 100%;
+/*    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;*/
 }
 
 #wrapper {
@@ -76,6 +84,7 @@ code {
         text-decoration: none;
     }
 
+    
     @keyframes text-shadow {
         0% {  
             transform: translateY(0);
@@ -132,19 +141,28 @@ code {
 
 /*end animated title*/
 
+iframe {
+  display:inline-block;
+  max-width: 100%;
+}
 
 .option-selector {
-  margin-top: 25px;
-  margin-bottom: 50px;
+  margin-top: 75px;
+  margin-bottom: 75px;
 }
 
 .img-option {
   /*transition: box-shadow .3s;*/
-  margin: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius:10px;
   background: #fff;
   opacity: 0.5;
   width: 200px;
+  height: auto;
+  /*display: inline-block;*/
 }
 
 .img-option:hover {
@@ -179,13 +197,31 @@ input[type=radio]:checked + label>img {
 }
 
 input[type=submit]{
-  font: 16px/1.25 'Raleway', sans-serif;
-  border-radius:10px;
+  background: white;
+  border: 10px solid white;
+  font-size: 1.5em;
+}
 
+input[type=submit]:hover {
+  opacity:.80;
+}
+
+input[type="submit"]:active {
+  opacity:0.4;
 }
 
 
-
-
-
+@media screen and (max-width: 600px) { 
+  .img-option{
+    display: block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+  h2{
+    font-size: 4em;
+  }
+}
 
