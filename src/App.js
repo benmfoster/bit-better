@@ -561,7 +561,7 @@ displayQuestion() {
     if(this.state.result === 'cocktail-recipe') {
         return (
         <div>
-          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen alt="Loading.."></iframe>      
           <h1 onClick={() => { this.resetPage() }}>Return</h1>
         </div>
           )

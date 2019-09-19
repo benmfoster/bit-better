@@ -158,6 +158,11 @@ iframe {
   top:30%;
   left:30%;
   border-radius: 5px;
+  background:url('https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.tenor.co%2Fimages%2Ff303fe0d76f8bfe6a7147694e8dacc70%2Fraw&f=1&nofb=1')
+}
+
+.iframe-container {
+  box-shadow:20px;
 }
 
 .option-selector {
