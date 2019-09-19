@@ -1,6 +1,6 @@
 #### Package(s)
 - npm install react-particles-js
-- npm install axios
+- npm install animate.css --save
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
