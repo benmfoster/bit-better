@@ -1,3 +1,6 @@
+# Bit Better
+Bit Better is an inspirational wellness quizbot built with React.js.
+
 #### Package(s)
 - npm install react-particles-js
 - npm install animate.css --save
