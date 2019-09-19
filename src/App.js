@@ -539,7 +539,7 @@ displayQuestion() {
 
           </div>
 
-          <input type="submit" class="btn btn-primary" value="Submit"/>
+          <input type="submit" class="btn" value="Submit"/>
 
         </form>
           </div>
@@ -557,6 +557,7 @@ displayQuestion() {
   }
 
   fin() {
+
     if(this.state.result === 'cocktail-recipe') {
           const url = this.state.responseAPIs[0];
           axios.get(url).then(response => { this.setState({ 
