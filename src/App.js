@@ -539,7 +539,7 @@ displayQuestion() {
 
           </div>
 
-          <input type="submit" class="btn" value="Submit"/>
+          <div class="btn-wrapper"><input type="submit" class="btn" value="◌"/></div>
 
         </form>
           </div>

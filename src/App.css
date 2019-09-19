@@ -154,6 +154,17 @@ code {
 
 /*end animated title*/
 
+.btn {
+  color:black;
+  border-radius: 100px;
+}
+.btn-wrapper {
+  width:50%;
+  margin:0 auto;
+  padding:20px;
+  border:rgb(31, 31, 31) 3px dotted;
+  border-radius:50px;
+}
 iframe {
   display:inline-block;
   max-width: 100%;
