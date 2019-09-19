@@ -134,6 +134,7 @@ greeting() {
           <h2 onClick={() => { 
            this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
+        <p>An inspirational wellness quiz bot.</p>
           <Particles
             params = 
             {
