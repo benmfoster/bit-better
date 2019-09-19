@@ -26,7 +26,7 @@ class App extends React.Component {
       '/img/11-leg.png',
       '/img/12-biggie.png',
       '/img/13-netflix.png',
-      '/img/14-drama.png',
+      '/img/14-movie.png',
       '/img/15-salty.png'
     ];
     const optionIndex = 0;
@@ -44,7 +44,7 @@ class App extends React.Component {
       '/img/11-arm.png',
       '/img/12-tupac.png',
       '/img/13-foodnetwork.png',
-      '/img/14-comedy.png',
+      '/img/14-tv.png',
       '/img/15-sweet.png'
     ];
     const questions = [
@@ -52,7 +52,7 @@ class App extends React.Component {
       'Bar guy or gym guy?',
       'Liquor or beer?',
       'Rocks or straight up?',
-      'Concert or stay home?',
+      'Go out or stay home?',
       'Pop or hip hop?',
       'Boy band or diva?',
       'Macro or Micro? 😎',
@@ -61,19 +61,19 @@ class App extends React.Component {
       'Leg Day or Arm Day?',
       'Biggie or Tupac?',
       'Netflix and chill or Food Network and eat?',
-      'Drama or comedy?',
+      'Movie or TV show?',
       'Salty or sweet?'
     ];
     const responseAPIs = [
-      'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+      'https://www.youtube.com/embed/joqDgv35w1Y',
       // rocks cocktail
       'https://www.youtube.com/embed/videoseries?list=PLfQTY7JyiX6bEnVDJfABVXk5g_ew16es6',
       // boyband^
-      'https://www.thecocktaildb.com/api.php?ref=apilist.fun',
+      'https://www.youtube.com/embed/EfrZL-q5Xf8',
       // martini
-      'https://untappd.com/api/docs',
+      'https://www.youtube.com/embed/NMWx4DE7JY4',
       // micro^
-      'https://untappd.com/api/docs',
+      'https://www.youtube.com/embed/AeKgCIfmUYc',
       // macrto^
       'https://www.youtube.com/embed/K-Ina_WW4Yc', 
       // energy yoga^
@@ -89,13 +89,13 @@ class App extends React.Component {
       // biggie playlist^
       'https://www.youtube.com/embed/videoseries?list=PLTHVfDbNnxSbk8uy7P1cUsQWsMvf8bDIk',
       //  tupac playlist  ^
-      'drama-vid',
-      // drama
-      'comedy-vid',
-      // comedy
-      'salty',
+      'https://www.youtube.com/embed/videoseries?list=PLvahqwMqN4M0UXgBYznO18lSYjzRj-gT-',
+      // movie
+      'https://www.youtube.com/embed/videoseries?list=PLvahqwMqN4M1QEN4SyuXrgO3_Wf3p6gj3',
+      // tv
+      'https://www.youtube.com/embed/videoseries?list=PL8zglt-LDl-jm3v9hCQa84Lp13aYdVxV_',
       // salty
-      'sweet'
+      'https://www.youtube.com/embed/videoseries?list=G5ze456xmc8&list=PL8zglt-LDl-gZa9icq9eqs_vtRew5gy2-'
       // sweet
     ];
     const questionsIndex = 0;
@@ -559,16 +559,11 @@ displayQuestion() {
   fin() {
 
     if(this.state.result === 'cocktail-recipe') {
-          const url = this.state.responseAPIs[0];
-          axios.get(url).then(response => { this.setState({ 
-            drink: response.data.drinks[0].strDrink,
-            })
-      });
-          return (
-          <div>
-            <h2>{this.state.drink}</h2>
-            <h1 onClick={() => { this.resetPage() }}>Return</h1>
-          </div>
+        return (
+        <div>
+          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+          <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        </div>
           )
         }
 
@@ -594,31 +589,31 @@ displayQuestion() {
     if(this.state.result === 'martini-recipe') {
       return (
         <div>
-        {this.state.responseAPIs[2]}
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
+          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[2]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+          <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        </div>
       )
     }
     if(this.state.result === 'beer-genre1') {
       return (
-        <div>
-        {this.state.responseAPIs[3]}
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[3]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
     }
     if(this.state.result === 'beer-genre2') {
       return (
-        <div>
-        {this.state.responseAPIs[4]}
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[4]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
     }
     if(this.state.result === 'energy-yoga-vid') {
       return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[5]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[5]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
@@ -664,33 +659,33 @@ displayQuestion() {
       )
     }
     if(this.state.result === 'drama-vid') {
-      return (
-        <div>
-        {this.state.responseAPIs[12]}
+return (
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[12]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
     }
     if(this.state.result === 'comedy-vid') {
       return (
-        <div>
-        {this.state.responseAPIs[13]}
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[13]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
     }
     if(this.state.result === 'salty') {
       return (
-        <div>
-        {this.state.responseAPIs[14]}
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[14]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
     }
     if(this.state.result === 'sweet') {
       return (
-        <div>
-        {this.state.responseAPIs[15]}
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[15]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
       )
