@@ -706,14 +706,12 @@ resetPage() {
     if (this.state.greeting.length > 0) {
       return (
         <div id="particles-js">
-        {this.greeting()}
-
-        
+        {this.greeting()}   
         </div>
       )
     } else if(this.state.questionsIndex !== 'out') {
       return (
-        <div id="particles-js">
+        <div id="particles-js-2">
           {this.chatBox()}
           <Particles 
             params = 
@@ -850,7 +848,7 @@ resetPage() {
       )
     } else {
       return (
-        <div id="particles-js">
+        <div id="particles-js-2">
 
           {this.fin()}
           <Particles 

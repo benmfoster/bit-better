@@ -13,19 +13,25 @@
   background-position: 50% 50%; 
   } 
 
-  canvas { 
+  #particles-js canvas { 
   position:absolute;
   bottom:0;
-  display:block;
+  left:0;
   vertical-align:bottom;
-  position: static;
+} 
+#particles-js-2 canvas { 
+  position:absolute;
+  bottom:0;
+  left:0;
+  vertical-align:bottom;
+  z-index: -1;
 } 
 /*end particles.js container*/
 
 body {
     margin:0; 
     font:normal 75% Arial, Helvetica, sans-serif;
-    background-color: #fdf9fd;
+    background-color: #00183C;
     color: #ffffff;
     /*font: 16px/1.25 'Raleway', sans-serif;*/
     text-align: center;
@@ -38,22 +44,13 @@ body {
     float: left;
     justify-content: center;
     min-height: 100vh;
-    padding: 1em;
     width: 100%;
-/*    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;*/
 }
 
 #wrapper {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 0px;
     max-width: 80em;
 }
 
@@ -65,7 +62,7 @@ code {
 
 /*animated title*/
     h2 {
-        animation: text-shadow 1.5s ease-in-out infinite;
+        animation: text-shadow 1.5s ease-in-out 1;
         font-size: 5em;
         font-weight: 900;
         line-height: 1;
@@ -151,12 +148,16 @@ iframe {
   margin-bottom: 75px;
 }
 
+img {
+  max-width:15%;
+}
+
 .img-option {
   /*transition: box-shadow .3s;*/
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 0;
+  margin-bottom: 25px;
   border-radius:10px;
   background: #fff;
   opacity: 0.5;
