@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
-import axios from 'axios';
 
 
 class App extends React.Component {
@@ -134,6 +133,7 @@ greeting() {
           <h2 onClick={() => { 
            this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
+        <p>An inspirational wellness quiz bot.</p>
           <Particles
             params = 
             {
@@ -525,7 +525,7 @@ displayQuestion() {
       
         <form onSubmit={this.handleSubmit}>
 
-          <div class="option-selector">
+          <div class="option-selector animated zoomIn">
             
             <input class="radio-item" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
             <label class="label-item" for="exampleRadios1">
@@ -561,7 +561,7 @@ displayQuestion() {
     if(this.state.result === 'cocktail-recipe') {
         return (
         <div>
-          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen alt="Loading.."></iframe>      
           <h1 onClick={() => { this.resetPage() }}>Return</h1>
         </div>
           )
@@ -706,14 +706,12 @@ resetPage() {
     if (this.state.greeting.length > 0) {
       return (
         <div id="particles-js">
-        {this.greeting()}
-
-        
+        {this.greeting()}   
         </div>
       )
     } else if(this.state.questionsIndex !== 'out') {
       return (
-        <div id="particles-js">
+        <div id="particles-js-2">
           {this.chatBox()}
           <Particles 
             params = 
@@ -850,7 +848,7 @@ resetPage() {
       )
     } else {
       return (
-        <div id="particles-js">
+        <div id="particles-js-2">
 
           {this.fin()}
           <Particles 
