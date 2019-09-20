@@ -854,14 +854,14 @@ resetPage() {
 }
 
   render() {
-    
-              
+           
                 
               
             
     if (this.state.greeting.length > 0) {
       return (
         <div id="particles-js">
+          <a href="https://github.com/benmfoster/bit-better">github</a> 
         {this.greeting()}   
         <Particles params = 
         {
@@ -876,6 +876,7 @@ resetPage() {
     } else if(this.state.questionsIndex !== 'out') {
       return (
         <div id="particles-js-2">
+          <a href="https://github.com/benmfoster/bit-better">github</a> 
           {this.chatBox()}
           <Particles 
             params = 
@@ -892,6 +893,7 @@ resetPage() {
     } else {
       return (
         <div id="particles-js-3">
+          
 
           {this.fin()}
           <Particles 
@@ -904,7 +906,7 @@ resetPage() {
             }
             
           />
-
+<a href="https://github.com/benmfoster/bit-better">github</a> 
         </div>
       )
     }
