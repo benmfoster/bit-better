@@ -54,7 +54,7 @@ const paramsChatBox =
   {
     number:
       {
-        value:100,
+        value:75,
         density:
           {
             enable:true,
@@ -63,15 +63,15 @@ const paramsChatBox =
       },
     color:
       {
-        value:"#34BCD1"
+        value:"#fff1ff"
       },
     shape:
       {
         "type":"square",
         "stroke":
           {
-            "width":5,
-            "color":"#FFFFFFF"
+            "width":3,
+            "color":"#044000"
           },
         "polygon":
           {
@@ -85,30 +85,30 @@ const paramsChatBox =
           }
       },
     opacity:
-      {"value":1,"random":true,"anim":
+      {"value":1,"random":false,"anim":
         {
           "enable":true,
-          "speed":1,
+          "speed":10,
           "opacity_min":0,
           "sync":false
         }
       },
     size:
       {
-        "value":3,
+        "value":8,
         "random":true,"anim":
         {
           "enable":false,
-          "speed":3,
-          "size_min":0.8,
-          "sync":false
+          "speed":10,
+          "size_min":0.3,
+          "sync":true
         }
       },
     line_linked:
       {
-        "enable":false,
+        "enable":true,
         "distance":150,
-        "color":"#FFFFFF",
+        "color":"#ffffff",
         "opacity":0.4,
         "width":1
       },
@@ -116,11 +116,11 @@ const paramsChatBox =
       {
         "enable":true,
         "speed":1,
-        "direction":"none",
-        "random":true,
+        "direction":"up",
+        "random":false,
         "straight":false,
         "out_mode":"out",
-        "bounce":false,
+        "bounce":true,
         "attract":
           {
             "enable":false,
@@ -129,83 +129,83 @@ const paramsChatBox =
       },
   };
 const paramsGreeting = 
+  {
+    number:
+      {
+        value:150,
+        density:
           {
-          number:
-            {
-              value:250,
-              density:
-                {
-                  enable:true,
-                  value_area:800
-                }
-            },
-          color:
-            {
-              value:"#fff1ff"
-            },
-          shape:
-            {
-              "type":"triangle",
-              "stroke":
-                {
-                  "width":3,
-                  "color":"#044000"
-                },
-              "polygon":
-                {
-                  "nb_sides":5
-                },
-              "image":
-                {
-                  "src":"img/github.svg",
-                  "width":100,
-                  "height":100
-                }
-            },
-          opacity:
-            {"value":1,"random":false,"anim":
-              {
-                "enable":true,
-                "speed":10,
-                "opacity_min":0,
-                "sync":false
-              }
-            },
-          size:
-            {
-              "value":8,
-              "random":true,"anim":
-              {
-                "enable":false,
-                "speed":10,
-                "size_min":0.3,
-                "sync":true
-              }
-            },
-          line_linked:
-            {
-              "enable":false,
-              "distance":150,
-              "color":"#ffffff",
-              "opacity":0.4,
-              "width":1
-            },
-          move:
-            {
-              "enable":true,
-              "speed":1,
-              "direction":"up",
-              "random":false,
-              "straight":false,
-              "out_mode":"out",
-              "bounce":true,
-              "attract":
-                {
-                  "enable":false,
-                  "rotateX":600,"rotateY":600
-                }
-            },
-          };
+            enable:true,
+            value_area:800
+          }
+      },
+    color:
+      {
+        value:"#fff1ff"
+      },
+    shape:
+      {
+        "type":"triangle",
+        "stroke":
+          {
+            "width":3,
+            "color":"#044000"
+          },
+        "polygon":
+          {
+            "nb_sides":5
+          },
+        "image":
+          {
+            "src":"img/github.svg",
+            "width":100,
+            "height":100
+          }
+      },
+    opacity:
+      {"value":1,"random":false,"anim":
+        {
+          "enable":true,
+          "speed":10,
+          "opacity_min":0,
+          "sync":false
+        }
+      },
+    size:
+      {
+        "value":8,
+        "random":true,"anim":
+        {
+          "enable":false,
+          "speed":10,
+          "size_min":0.3,
+          "sync":true
+        }
+      },
+    line_linked:
+      {
+        "enable":false,
+        "distance":150,
+        "color":"#ffffff",
+        "opacity":0.4,
+        "width":1
+      },
+    move:
+      {
+        "enable":true,
+        "speed":1,
+        "direction":"up",
+        "random":false,
+        "straight":false,
+        "out_mode":"out",
+        "bounce":true,
+        "attract":
+          {
+            "enable":false,
+            "rotateX":600,"rotateY":600
+          }
+      },
+  };
 const paramsFin = 
   {
     number:
@@ -283,7 +283,7 @@ const paramsFin =
             "rotateX":600,"rotateY":600
           }
       },
-  };
+  };  
 
 class App extends React.Component {
 
@@ -669,9 +669,9 @@ displayQuestion() {
   return (
   <div>
       <div id="container">
-      <h2>
-        { this.state.questions[this.state.questionsIndex] }
-      </h2>
+        <h2>
+          { this.state.questions[this.state.questionsIndex] }
+        </h2>
       
         <form onSubmit={this.handleSubmit}>
 
@@ -693,8 +693,8 @@ displayQuestion() {
           <div class="btn-wrapper"><input type="submit" class="btn" value="◌"/></div>
 
         </form>
-          </div>
-          </div>
+      </div>
+  </div>
   )
 }
 
