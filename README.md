@@ -1,6 +1,12 @@
 # Bit Better
 Bit Better is an inspirational wellness quiz bot built with React.js.
 
+![alt text](https://github.com/benmfoster/bit-better/blob/master/public/img/screenshot-tranquil-plateau-82554.herokuapp.com-2019.09.20-12_25_47.png)
+
+![alt text](https://github.com/benmfoster/bit-better/blob/master/public/img/screenshot-tranquil-plateau-82554.herokuapp.com-2019.09.20-12_29_33.png)
+
+![alt text](https://github.com/benmfoster/bit-better/blob/master/public/img/screenshot-tranquil-plateau-82554.herokuapp.com-2019.09.20-12_32_13.png)
+
 #### Package(s)
 - npm install react-particles-js
 - npm install animate.css --save
