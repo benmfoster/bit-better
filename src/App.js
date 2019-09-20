@@ -545,7 +545,7 @@ greeting() {
       <div>
         <div id="container">
 
-          <h2 onClick={() => { 
+          <h2 class="greeting" onClick={() => { 
            this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
         <p>An inspirational wellness quiz bot.</p>
@@ -820,7 +820,8 @@ displayQuestion() {
 
           </div>
 
-          <input type="submit" className="btn" value="Submit"/>
+
+          <div class="btn-wrapper"><input type="submit" class="btn" value="◌"/></div>
 
         </form>
           </div>
