@@ -42,7 +42,6 @@ body {
   color: #ffffff;
   /*font: 16px/1.25 'Raleway', sans-serif;*/
   text-align: center;
-  margin:0;
 }
 
 #container {
@@ -86,7 +85,9 @@ h2:hover {
 }
 
 a {
-  color: #024794;
+  color: gold;
+  position:absolute;
+  z-index:9999;
 }
 
 a:hover {
@@ -176,11 +177,8 @@ p {
   border-radius:50px;
 }
 iframe {
-  display:inline-block;
+  margin-top:20%;
   max-width: 100%;
-  position:absolute;
-  top:30%;
-  left:30%;
   border-radius: 5px;
   background:url('https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.tenor.co%2Fimages%2Ff303fe0d76f8bfe6a7147694e8dacc70%2Fraw&f=1&nofb=1')
 }
