@@ -1,6 +1,8 @@
 # Bit Better
 Bit Better is an inspirational wellness quiz bot built with React.js.
 
+Feeling some kind of way? Bit Better is here to help with recipe suggestions, fun videos and songs based on your current state of mind. Click through a series of specially tailored questions while enjoying the interactive play of the particle background while this app helps you get going (or charge down).
+
 ![alt text](https://github.com/benmfoster/bit-better/blob/master/public/img/screenshot-tranquil-plateau-82554.herokuapp.com-2019.09.20-12_25_47.png)
 
 ![alt text](https://github.com/benmfoster/bit-better/blob/master/public/img/screenshot-tranquil-plateau-82554.herokuapp.com-2019.09.20-12_29_33.png)
