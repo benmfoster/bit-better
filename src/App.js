@@ -833,7 +833,7 @@ chatBox() {
     return (
       <div>
         {this.displayQuestion()}
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        <h1 onClick={() => { this.resetPage() }}>↩</h1>
       </div>
     )
 }
@@ -844,7 +844,7 @@ fin() {
       return (
       <div>
         <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen alt="Loading.."></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        <h1 onClick={() => { this.resetPage() }}>↩</h1>
       </div>
         )
       }
@@ -853,7 +853,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     
     )
@@ -862,7 +862,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[9]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     
     )
@@ -872,7 +872,7 @@ fin() {
     return (
       <div>
         <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[2]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        <h1 onClick={() => { this.resetPage() }}>↩</h1>
       </div>
     )
   }
@@ -880,7 +880,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[3]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -888,7 +888,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[4]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -904,7 +904,7 @@ fin() {
     return (
       <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[6]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -912,7 +912,7 @@ fin() {
     return (
       <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[7]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -920,7 +920,7 @@ fin() {
     return (
       <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[8]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -928,7 +928,7 @@ fin() {
     return (
       <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[10]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -936,7 +936,7 @@ fin() {
     return (
       <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[11]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -944,7 +944,7 @@ fin() {
     return (
       <div>
         <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[12]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+        <h1 onClick={() => { this.resetPage() }}>↩</h1>
       </div>
     )
   }
@@ -952,7 +952,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[13]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -960,7 +960,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[14]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }
@@ -968,7 +968,7 @@ fin() {
     return (
     <div>
       <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[15]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
-      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      <h1 onClick={() => { this.resetPage() }}>↩</h1>
     </div>
     )
   }

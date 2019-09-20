@@ -69,8 +69,8 @@ code {
 
 /*animated title*/
 h1 {
-  margin-top:70px;
-}  
+  cursor:pointer;
+} 
 
 h2 {
   animation: text-shadow 1.5s ease-in-out 1;
@@ -160,13 +160,17 @@ p {
 
 /*end animated title*/
 
+.greeting {
+  cursor:pointer;
+}
 .btn {
   color:black;
   border-radius: 100px;
+  cursor:pointer;
 }
 .btn-wrapper {
   width:50%;
-  margin:0 auto;
+  margin:0 auto 20px;
   padding:20px;
   border:rgb(31, 31, 31) 3px dotted;
   border-radius:50px;
