@@ -2,6 +2,288 @@ import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 
+const paramsInteractivity =
+          {
+              "detect_on":"canvas",
+              "events":
+                {
+                  "onhover":
+                    {
+                      "enable":true,
+                      "mode":"bubble"
+                    },
+                  "onclick":
+                    {
+                      "enable":true,
+                      "mode":"repulse"
+                    },
+                  "resize":true
+                },
+              "modes":
+                {
+                  "grab":
+                    {
+                      "distance":400,
+                      "line_linked":
+                        {"opacity":1}
+                    },
+                  "bubble":
+                    {
+                      "distance":250,
+                      "size":0,
+                      "duration":2,
+                      "opacity":0,
+                      "speed":3
+                    },
+                  "repulse":
+                    {
+                      "distance":400,
+                      "duration":0.4
+                    },
+                  "push":
+                    {
+                      "particles_nb":4
+                    },
+                  "remove":
+                    {
+                      "particles_nb":2
+                    }
+                }
+          };
+const paramsChatBox = 
+  {
+    number:
+      {
+        value:100,
+        density:
+          {
+            enable:true,
+            value_area:800
+          }
+      },
+    color:
+      {
+        value:"#34BCD1"
+      },
+    shape:
+      {
+        "type":"square",
+        "stroke":
+          {
+            "width":5,
+            "color":"#000000"
+          },
+        "polygon":
+          {
+            "nb_sides":5
+          },
+        "image":
+          {
+            "src":"img/github.svg",
+            "width":100,
+            "height":100
+          }
+      },
+    opacity:
+      {"value":1,"random":true,"anim":
+        {
+          "enable":true,
+          "speed":1,
+          "opacity_min":0,
+          "sync":false
+        }
+      },
+    size:
+      {
+        "value":3,
+        "random":true,"anim":
+        {
+          "enable":false,
+          "speed":3,
+          "size_min":0.8,
+          "sync":false
+        }
+      },
+    line_linked:
+      {
+        "enable":false,
+        "distance":150,
+        "color":"#FFFFFF",
+        "opacity":0.4,
+        "width":1
+      },
+    move:
+      {
+        "enable":true,
+        "speed":1,
+        "direction":"none",
+        "random":true,
+        "straight":false,
+        "out_mode":"out",
+        "bounce":false,
+        "attract":
+          {
+            "enable":false,
+            "rotateX":600,"rotateY":600
+          }
+      },
+  };
+const paramsGreeting = 
+          {
+          number:
+            {
+              value:250,
+              density:
+                {
+                  enable:true,
+                  value_area:800
+                }
+            },
+          color:
+            {
+              value:"#fff1ff"
+            },
+          shape:
+            {
+              "type":"triangle",
+              "stroke":
+                {
+                  "width":3,
+                  "color":"#044000"
+                },
+              "polygon":
+                {
+                  "nb_sides":5
+                },
+              "image":
+                {
+                  "src":"img/github.svg",
+                  "width":100,
+                  "height":100
+                }
+            },
+          opacity:
+            {"value":1,"random":false,"anim":
+              {
+                "enable":true,
+                "speed":10,
+                "opacity_min":0,
+                "sync":false
+              }
+            },
+          size:
+            {
+              "value":8,
+              "random":true,"anim":
+              {
+                "enable":false,
+                "speed":10,
+                "size_min":0.3,
+                "sync":true
+              }
+            },
+          line_linked:
+            {
+              "enable":false,
+              "distance":150,
+              "color":"#ffffff",
+              "opacity":0.4,
+              "width":1
+            },
+          move:
+            {
+              "enable":true,
+              "speed":1,
+              "direction":"up",
+              "random":false,
+              "straight":false,
+              "out_mode":"out",
+              "bounce":true,
+              "attract":
+                {
+                  "enable":false,
+                  "rotateX":600,"rotateY":600
+                }
+            },
+          };
+const paramsFin = 
+  {
+    number:
+      {
+        value:350,
+        density:
+          {
+            enable:true,
+            value_area:800
+          }
+      },
+    color:
+      {
+        value:"#ff15ff"
+      },
+    shape:
+      {
+        "type":"star",
+        "stroke":
+          {
+            "width":5,
+            "color":"#000000"
+          },
+        "polygon":
+          {
+            "nb_sides":5
+          },
+        "image":
+          {
+            "src":"img/github.svg",
+            "width":100,
+            "height":100
+          }
+      },
+    opacity:
+      {"value":1,"random":true,"anim":
+        {
+          "enable":true,
+          "speed":1,
+          "opacity_min":0,
+          "sync":false
+        }
+      },
+    size:
+      {
+        "value":5,
+        "random":true,"anim":
+        {
+          "enable":false,
+          "speed":3,
+          "size_min":0.8,
+          "sync":false
+        }
+      },
+    line_linked:
+      {
+        "enable":false,
+        "distance":150,
+        "color":"#ffffff",
+        "opacity":0.4,
+        "width":1
+      },
+    move:
+      {
+        "enable":true,
+        "speed":1,
+        "direction":"none",
+        "random":true,
+        "straight":false,
+        "out_mode":"out",
+        "bounce":false,
+        "attract":
+          {
+            "enable":false,
+            "rotateX":600,"rotateY":600
+          }
+      },
+  };
 
 class App extends React.Component {
 
@@ -99,6 +381,139 @@ class App extends React.Component {
     ];
     const questionsIndex = 0;
     const result = ''
+    var paramsGreeting = 
+          
+            {
+              particles:
+              {
+              number:
+                {
+                  value:250,
+                  density:
+                    {
+                      enable:true,
+                      value_area:800
+                    }
+                },
+              color:
+                {
+                  value:"#fff1ff"
+                },
+              shape:
+                {
+                  "type":"triangle",
+                  "stroke":
+                    {
+                      "width":3,
+                      "color":"#044000"
+                    },
+                  "polygon":
+                    {
+                      "nb_sides":5
+                    },
+                  "image":
+                    {
+                      "src":"img/github.svg",
+                      "width":100,
+                      "height":100
+                    }
+                },
+              opacity:
+                {"value":1,"random":false,"anim":
+                  {
+                    "enable":true,
+                    "speed":10,
+                    "opacity_min":0,
+                    "sync":false
+                  }
+                },
+              size:
+                {
+                  "value":8,
+                  "random":true,"anim":
+                  {
+                    "enable":false,
+                    "speed":10,
+                    "size_min":0.3,
+                    "sync":true
+                  }
+                },
+              line_linked:
+                {
+                  "enable":false,
+                  "distance":150,
+                  "color":"#ffffff",
+                  "opacity":0.4,
+                  "width":1
+                },
+              move:
+                {
+                  "enable":true,
+                  "speed":1,
+                  "direction":"up",
+                  "random":false,
+                  "straight":false,
+                  "out_mode":"out",
+                  "bounce":true,
+                  "attract":
+                    {
+                      "enable":false,
+                      "rotateX":600,"rotateY":600
+                    }
+                },
+              },
+              interactivity:
+              {
+                  "detect_on":"canvas",
+                  "events":
+                    {
+                      "onhover":
+                        {
+                          "enable":true,
+                          "mode":"bubble"
+                        },
+                      "onclick":
+                        {
+                          "enable":true,
+                          "mode":"repulse"
+                        },
+                      "resize":true
+                    },
+                  "modes":
+                    {
+                      "grab":
+                        {
+                          "distance":400,
+                          "line_linked":
+                            {"opacity":1}
+                        },
+                      "bubble":
+                        {
+                          "distance":250,
+                          "size":0,
+                          "duration":2,
+                          "opacity":0,
+                          "speed":3
+                        },
+                      "repulse":
+                        {
+                          "distance":400,
+                          "duration":0.4
+                        },
+                      "push":
+                        {
+                          "particles_nb":4
+                        },
+                      "remove":
+                        {
+                          "particles_nb":2
+                        }
+                    }
+              },
+                "retina_detect":false
+              
+            }
+          
     this.state = {
       greeting,
       selectedOption,
@@ -134,141 +549,7 @@ greeting() {
            this.setState({ greeting: '' }); 
         }}>{ this.state.greeting }</h2>
         <p>An inspirational wellness quiz bot.</p>
-          <Particles
-            params = 
-            {
-              {
-                particles:
-                {
-                number:
-                  {
-                    value:250,
-                    density:
-                      {
-                        enable:true,
-                        value_area:800
-                      }
-                  },
-                color:
-                  {
-                    value:"#fff1ff"
-                  },
-                shape:
-                  {
-                    "type":"triangle",
-                    "stroke":
-                      {
-                        "width":3,
-                        "color":"#044000"
-                      },
-                    "polygon":
-                      {
-                        "nb_sides":5
-                      },
-                    "image":
-                      {
-                        "src":"img/github.svg",
-                        "width":100,
-                        "height":100
-                      }
-                  },
-                opacity:
-                  {"value":1,"random":false,"anim":
-                    {
-                      "enable":true,
-                      "speed":10,
-                      "opacity_min":0,
-                      "sync":false
-                    }
-                  },
-                size:
-                  {
-                    "value":8,
-                    "random":true,"anim":
-                    {
-                      "enable":false,
-                      "speed":10,
-                      "size_min":0.3,
-                      "sync":true
-                    }
-                  },
-                line_linked:
-                  {
-                    "enable":false,
-                    "distance":150,
-                    "color":"#ffffff",
-                    "opacity":0.4,
-                    "width":1
-                  },
-                move:
-                  {
-                    "enable":true,
-                    "speed":1,
-                    "direction":"up",
-                    "random":false,
-                    "straight":false,
-                    "out_mode":"out",
-                    "bounce":true,
-                    "attract":
-                      {
-                        "enable":false,
-                        "rotateX":600,"rotateY":600
-                      }
-                  },
-                },
-                interactivity:
-                {
-                    "detect_on":"canvas",
-                    "events":
-                      {
-                        "onhover":
-                          {
-                            "enable":true,
-                            "mode":"bubble"
-                          },
-                        "onclick":
-                          {
-                            "enable":true,
-                            "mode":"repulse"
-                          },
-                        "resize":true
-                      },
-                    "modes":
-                      {
-                        "grab":
-                          {
-                            "distance":400,
-                            "line_linked":
-                              {"opacity":1}
-                          },
-                        "bubble":
-                          {
-                            "distance":250,
-                            "size":0,
-                            "duration":2,
-                            "opacity":0,
-                            "speed":3
-                          },
-                        "repulse":
-                          {
-                            "distance":400,
-                            "duration":0.4
-                          },
-                        "push":
-                          {
-                            "particles_nb":4
-                          },
-                        "remove":
-                          {
-                            "particles_nb":2
-                          }
-                      }
-                },
-                  "retina_detect":false
-                
-              }
-            }
-          />
+          
           </div>
       </div>
     )
@@ -419,56 +700,56 @@ newQuestion() {
       })
     }
 
-// sweet story
+  // sweet story
 
-if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option2') {
-  this.setState({
-    result: 'sweet',
-    questionsIndex: 'out'
-  })
-}
-
-
-  // martini story
-if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
-  this.setState({
-    result: 'martini-recipe',
-    questionsIndex: 'out'
-  })
-}
-
-  // beer stories
-  if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 5;
-    const question = this.state.questionsIndex + 5;
+  if(this.state.questionsIndex === 14 && this.state.selectedOption === 'option2') {
     this.setState({
-      optionIndex: option, 
-      questionsIndex: question 
-    }); 
+      result: 'sweet',
+      questionsIndex: 'out'
+    })
   }
 
-  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option1') {
+
+    // martini story
+  if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
     this.setState({
-      result: 'beer-genre1', 
-      questionsIndex: 'out' 
-    }); 
-  }
-  if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option2') {
-    this.setState({
-      result: 'beer-genre2', 
-      questionsIndex: 'out' 
-    }); 
+      result: 'martini-recipe',
+      questionsIndex: 'out'
+    })
   }
 
-  // gym stories
-  if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option2') {
-    const option = this.state.optionIndex + 7;
-    const question = this.state.questionsIndex + 7;
-    this.setState({
-      optionIndex: option, 
-      questionsIndex: question 
-    }); 
-  }
+    // beer stories
+    if(this.state.questionsIndex === 2 && this.state.selectedOption === 'option2') {
+      const option = this.state.optionIndex + 5;
+      const question = this.state.questionsIndex + 5;
+      this.setState({
+        optionIndex: option, 
+        questionsIndex: question 
+      }); 
+    }
+
+    if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option1') {
+      this.setState({
+        result: 'beer-genre1', 
+        questionsIndex: 'out' 
+      }); 
+    }
+    if(this.state.questionsIndex === 7 && this.state.selectedOption === 'option2') {
+      this.setState({
+        result: 'beer-genre2', 
+        questionsIndex: 'out' 
+      }); 
+    }
+
+    // gym stories
+    if(this.state.questionsIndex === 1 && this.state.selectedOption === 'option2') {
+      const option = this.state.optionIndex + 7;
+      const question = this.state.questionsIndex + 7;
+      this.setState({
+        optionIndex: option, 
+        questionsIndex: question 
+      }); 
+    }
 
     // yoga stories
     if(this.state.questionsIndex === 8 && this.state.selectedOption === 'option1') {
@@ -517,7 +798,7 @@ if(this.state.questionsIndex === 3 && this.state.selectedOption === 'option2') {
 
 displayQuestion() {
   return (
-  <div id="particles-js">
+  <div>
       <div id="container">
       <h2>
         { this.state.questions[this.state.questionsIndex] }
@@ -525,19 +806,20 @@ displayQuestion() {
       
         <form onSubmit={this.handleSubmit}>
 
-          <div class="option-selector animated zoomIn">
+          <div className="option-selector animated zoomIn">
             
-            <input class="radio-item" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
-            <label class="label-item" for="exampleRadios1">
-              <img src={this.state.optionOne[this.state.optionIndex]} class="img-option"/>
+            <input className="radio-item" type="radio" name="questionOneOptionOne" id="exampleRadios1" value="option1" checked={this.state.selectedOption === 'option1'} onChange={this.handleOptionChange} />
+            <label className="label-item" htmlFor="exampleRadios1">
+              <img alt="..." src={this.state.optionOne[this.state.optionIndex]} className="img-option"/>
             </label>
 
-            <input class="radio-item" type="radio" name="questionOneOptionTwo" id="exampleRadios2" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
-            <label class="label-item" for="exampleRadios2">
-              <img src={this.state.optionTwo[this.state.optionIndex]} class="img-option"/>
+            <input className="radio-item" type="radio" name="questionOneOptionTwo" id="exampleRadios2" value="option2" checked={this.state.selectedOption === 'option2'} onChange={this.handleOptionChange}/>
+            <label className="label-item" htmlFor="exampleRadios2">
+              <img alt="..." src={this.state.optionTwo[this.state.optionIndex]} className="img-option"/>
             </label>
 
           </div>
+
 
           <div class="btn-wrapper"><input type="submit" class="btn" value="◌"/></div>
 
@@ -547,150 +829,150 @@ displayQuestion() {
   )
 }
 
-  chatBox() {
+chatBox() {
+    return (
+      <div>
+        {this.displayQuestion()}
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+    )
+}
+
+fin() {
+
+  if(this.state.result === 'cocktail-recipe') {
       return (
-        <div>
-          {this.displayQuestion()}
-          <h1 onClick={() => { this.resetPage() }}>Return</h1>
-        </div>
-      )
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen alt="Loading.."></iframe>      
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+        )
+      }
+
+  if(this.state.result === 'boy-band') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    
+    )
+  }
+  if(this.state.result === 'pop-diva') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[9]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    
+    )
   }
 
-  fin() {
-
-    if(this.state.result === 'cocktail-recipe') {
-        return (
-        <div>
-          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[0]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen alt="Loading.."></iframe>      
-          <h1 onClick={() => { this.resetPage() }}>Return</h1>
-        </div>
-          )
-        }
-
-    if(this.state.result === 'boy-band') {
-      return (
+  if(this.state.result === 'martini-recipe') {
+    return (
       <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[1]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[2]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
         <h1 onClick={() => { this.resetPage() }}>Return</h1>
       </div>
-      
-      )
-    }
-    if(this.state.result === 'pop-diva') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[9]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      
-      )
-    }
-
-    if(this.state.result === 'martini-recipe') {
-      return (
-        <div>
-          <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[2]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-          <h1 onClick={() => { this.resetPage() }}>Return</h1>
-        </div>
-      )
-    }
-    if(this.state.result === 'beer-genre1') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[3]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'beer-genre2') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[4]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'energy-yoga-vid') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[5]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'meditative-yoga-vid') {
-      return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[6]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'leg-workout-vid') {
-      return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[7]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'arm-workout-vid') {
-      return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[8]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'biggie-spotify-playlist') {
-      return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[10]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'tupac-spotify-playlist') {
-      return (
-        <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[11]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'drama-vid') {
-return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[12]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'comedy-vid') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[13]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'salty') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[14]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
-    if(this.state.result === 'sweet') {
-      return (
-      <div>
-        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[15]} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>      
-        <h1 onClick={() => { this.resetPage() }}>Return</h1>
-      </div>
-      )
-    }
+    )
   }
+  if(this.state.result === 'beer-genre1') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[3]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'beer-genre2') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[4]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'energy-yoga-vid') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[5]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'meditative-yoga-vid') {
+    return (
+      <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[6]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'leg-workout-vid') {
+    return (
+      <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[7]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'arm-workout-vid') {
+    return (
+      <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[8]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'biggie-spotify-playlist') {
+    return (
+      <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[10]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'tupac-spotify-playlist') {
+    return (
+      <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[11]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'drama-vid') {
+    return (
+      <div>
+        <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[12]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+        <h1 onClick={() => { this.resetPage() }}>Return</h1>
+      </div>
+    )
+  }
+  if(this.state.result === 'comedy-vid') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[13]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'salty') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[14]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+  if(this.state.result === 'sweet') {
+    return (
+    <div>
+      <iframe title="iframe" width="560" height="315" src={this.state.responseAPIs[15]} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>      
+      <h1 onClick={() => { this.resetPage() }}>Return</h1>
+    </div>
+    )
+  }
+}
 
 resetPage() {
   this.setState({
@@ -703,10 +985,23 @@ resetPage() {
 }
 
   render() {
+    
+              
+                
+              
+            
     if (this.state.greeting.length > 0) {
       return (
         <div id="particles-js">
         {this.greeting()}   
+        <Particles params = 
+        {
+          {
+            particles: paramsGreeting,
+            interactivity: paramsInteractivity
+          }
+        }
+        />
         </div>
       )
     } else if(this.state.questionsIndex !== 'out') {
@@ -717,129 +1012,8 @@ resetPage() {
             params = 
             {
               {
-                particles:
-                {
-                number:
-                  {
-                    density:
-                      {
-                        enable:true,
-                        value_area:800
-                      }
-                  },
-                color:
-                  {
-                    value:"#ffffff"
-                  },
-                shape:
-                  {
-                    "stroke":
-                      {
-                        "width":0,
-                        "color":"#000000"
-                      },
-                    "polygon":
-                      {
-                        "nb_sides":5
-                      },
-                    "image":
-                      {
-                        "src":"img/github.svg",
-                        "width":100,
-                        "height":100
-                      }
-                  },
-                opacity:
-                  {"value":1,"random":true,"anim":
-                    {
-                      "enable":true,
-                      "speed":1,
-                      "opacity_min":0,
-                      "sync":false
-                    }
-                  },
-                size:
-                  {
-                    "random":true,"anim":
-                    {
-                      "enable":false,
-                      "speed":4,
-                      "sync":false
-                    }
-                  },
-                line_linked:
-                  {
-                    "enable":false,
-                    "distance":150,
-                    "color":"#ffffff",
-                    "opacity":0.4,
-                    "width":1
-                  },
-                move:
-                  {
-                    "enable":true,
-                    "speed":1,
-                    "direction":"none",
-                    "random":true,
-                    "straight":false,
-                    "out_mode":"out",
-                    "bounce":false,
-                    "attract":
-                      {
-                        "enable":false,
-                        "rotateX":600,"rotateY":600
-                      }
-                  },
-                interactivity:
-                  {
-                    "detect_on":"canvas",
-                    "events":
-                      {
-                        "onhover":
-                          {
-                            "enable":true,
-                            "mode":"bubble"
-                          },
-                        "onclick":
-                          {
-                            "enable":true,
-                            "mode":"repulse"
-                          },
-                        "resize":true
-                      },
-                    "modes":
-                      {
-                        "grab":
-                          {
-                            "distance":400,
-                            "line_linked":
-                              {"opacity":1}
-                          },
-                        "bubble":
-                          {
-                            "distance":250,
-                            "size":0,
-                            "duration":2,
-                            "opacity":0,
-                            "speed":3
-                          },
-                        "repulse":
-                          {
-                            "distance":400,
-                            "duration":0.4
-                          },
-                        "push":
-                          {
-                            "particles_nb":4
-                          },
-                        "remove":
-                          {
-                            "particles_nb":2
-                          }
-                      }
-                  },
-                    "retina_detect":false
-                }
+                particles: paramsChatBox,
+                // interactivity: paramsInteractivity
               }
             }
           />
@@ -848,143 +1022,18 @@ resetPage() {
       )
     } else {
       return (
-        <div id="particles-js-2">
+        <div id="particles-js-3">
 
           {this.fin()}
           <Particles 
             params = 
             {
               {
-                particles:
-                {
-                number:
-                  {
-                    value:350,
-                    density:
-                      {
-                        enable:true,
-                        value_area:800
-                      }
-                  },
-                color:
-                  {
-                    value:"#ff15ff"
-                  },
-                shape:
-                  {
-                    "type":"star",
-                    "stroke":
-                      {
-                        "width":5,
-                        "color":"#000000"
-                      },
-                    "polygon":
-                      {
-                        "nb_sides":5
-                      },
-                    "image":
-                      {
-                        "src":"img/github.svg",
-                        "width":100,
-                        "height":100
-                      }
-                  },
-                opacity:
-                  {"value":1,"random":true,"anim":
-                    {
-                      "enable":true,
-                      "speed":1,
-                      "opacity_min":0,
-                      "sync":false
-                    }
-                  },
-                size:
-                  {
-                    "value":5,
-                    "random":true,"anim":
-                    {
-                      "enable":false,
-                      "speed":3,
-                      "size_min":0.8,
-                      "sync":false
-                    }
-                  },
-                line_linked:
-                  {
-                    "enable":false,
-                    "distance":150,
-                    "color":"#ffffff",
-                    "opacity":0.4,
-                    "width":1
-                  },
-                move:
-                  {
-                    "enable":true,
-                    "speed":1,
-                    "direction":"none",
-                    "random":true,
-                    "straight":false,
-                    "out_mode":"out",
-                    "bounce":false,
-                    "attract":
-                      {
-                        "enable":false,
-                        "rotateX":600,"rotateY":600
-                      }
-                  },
-                },
-                interactivity:
-                  {
-                    "detect_on":"canvas",
-                    "events":
-                      {
-                        "onhover":
-                          {
-                            "enable":true,
-                            "mode":"bubble"
-                          },
-                        "onclick":
-                          {
-                            "enable":true,
-                            "mode":"repulse"
-                          },
-                        "resize":true
-                      },
-                    "modes":
-                      {
-                        "grab":
-                          {
-                            "distance":400,
-                            "line_linked":
-                              {"opacity":1}
-                          },
-                        "bubble":
-                          {
-                            "distance":250,
-                            "size":0,
-                            "duration":2,
-                            "opacity":0,
-                            "speed":3
-                          },
-                        "repulse":
-                          {
-                            "distance":400,
-                            "duration":0.4
-                          },
-                        "push":
-                          {
-                            "particles_nb":4
-                          },
-                        "remove":
-                          {
-                            "particles_nb":2
-                          }
-                      }
-                  },
-                    "retina_detect":false
-                }
-              
+                particles: paramsFin,
+                interactivity: paramsInteractivity
+              }
             }
+            
           />
 
         </div>
